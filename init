@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# clone the theme
+git submodule init
+git submodule update
+
+# setup the public folder
+git worktree add -B master public origin/master
