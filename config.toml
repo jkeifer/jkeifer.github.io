@@ -8,7 +8,7 @@ mainSections = ["posts"]
 author = "Jarrett Keifer"
 email = ""
 description = 'Network and GIS Software Engineer in the Pacific NW'
-postcss = true
+postcss = false
 # Include the author name in the <title> of articles
 includeAuthorInTitle = true
 disableAttribution = true
