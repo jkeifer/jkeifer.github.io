@@ -1,31 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Hello Friend NG</title>
-        <link>https://jkeifer.github.io/posts/</link>
-        <description>Recent content in Posts on Hello Friend NG</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Mon, 10 Feb 2020 22:12:06 -0800</lastBuildDate>
-        <atom:link href="https://jkeifer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Intro</title>
-            <link>https://jkeifer.github.io/posts/intro/</link>
-            <pubDate>Mon, 10 Feb 2020 22:12:06 -0800</pubDate>
-            
-            <guid>https://jkeifer.github.io/posts/intro/</guid>
-            <description>Introduction Hello. I am a software engineer from Portland hoping to spread some knowledge when I have something possibly interesting to share.
+  <channel>
+    <title>Posts on My blog</title>
+    <link>https://jkeifer.github.io/posts/</link>
+    <description>Recent content in Posts on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Feb 2020 22:12:06 -0800</lastBuildDate>
+    
+	<atom:link href="https://jkeifer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://jkeifer.github.io/posts/intro/</link>
+      <pubDate>Mon, 10 Feb 2020 22:12:06 -0800</pubDate>
+      
+      <guid>https://jkeifer.github.io/posts/intro/</guid>
+      <description>Hello. I am a software engineer from Portland hoping to spread some knowledge when I have something possibly interesting to share.
 This is a new thing for me, technical blogging, so it might take me a little time to get started, but I hope I can start to churn out a regular stream of meaningful content quickly.
 So please, stay tuned.</description>
-            <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>Hello. I am a software engineer from Portland hoping to spread
-some knowledge when I have something possibly interesting to share.</p>
-<p>This is a new thing for me, technical blogging, so it might take me
-a little time to get started, but I hope I can start to churn out a
-regular stream of meaningful content quickly.</p>
-<p>So please, stay tuned.</p>
-]]></content>
-        </item>
-        
-    </channel>
+    </item>
+    
+  </channel>
 </rss>
