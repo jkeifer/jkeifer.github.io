@@ -1,6 +1,6 @@
 baseURL = "https://jkeifer.github.io/"
 languageCode = "en-us"
-title = "My blog"
+title = "lost in tab"
 theme = "bare"
 
 [params]
