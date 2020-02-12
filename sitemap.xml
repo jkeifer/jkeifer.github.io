@@ -8,21 +8,6 @@
   </url>
   
   <url>
-    <loc>https://jkeifer.github.io/tags/git/</loc>
-    <lastmod>2020-02-11T12:52:22-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jkeifer.github.io/tags/github/</loc>
-    <lastmod>2020-02-11T12:52:22-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jkeifer.github.io/tags/hugo/</loc>
-    <lastmod>2020-02-11T12:52:22-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jkeifer.github.io/</loc>
     <lastmod>2020-02-11T12:52:22-08:00</lastmod>
   </url>
@@ -33,17 +18,16 @@
   </url>
   
   <url>
-    <loc>https://jkeifer.github.io/tags/</loc>
-    <lastmod>2020-02-11T12:52:22-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jkeifer.github.io/posts/introduction/</loc>
     <lastmod>2020-02-10T22:12:06-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://jkeifer.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jkeifer.github.io/tags/</loc>
   </url>
   
 </urlset>

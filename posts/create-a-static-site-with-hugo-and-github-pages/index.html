@@ -48,24 +48,6 @@
   <div class="navbar-menu">
     <div class="navbar-start">
       
-      <a class="navbar-item" href="https://jkeifer.github.io/tags/git/">
-        
-        Git
-        
-      </a>
-      
-      <a class="navbar-item" href="https://jkeifer.github.io/tags/github/">
-        
-        Github
-        
-      </a>
-      
-      <a class="navbar-item" href="https://jkeifer.github.io/tags/hugo/">
-        
-        Hugo
-        
-      </a>
-      
     </div>
 
     <div class="navbar-end">
@@ -106,24 +88,6 @@
     <time datetime='2020-02-11T12:52:22-08:00'>
       February 11, 2020
     </time>
-    
-    <br>
-    
-    
-    
-    <a class="tag is-link" href="https://jkeifer.github.io/tags/hugo/">hugo</a>
-    
-    
-    
-    
-    <a class="tag is-link" href="https://jkeifer.github.io/tags/git/">git</a>
-    
-    
-    
-    
-    <a class="tag is-link" href="https://jkeifer.github.io/tags/github/">github</a>
-    
-    
     
   </h2>
 </div>
@@ -208,7 +172,7 @@ $ hugo new content/posts/first_post.md
 $ hugo server  <span style="color:#75715e"># test the site, accessible at localhost:1313</span>
 </code></pre></div><p>Great, but how do we publish this? By default Hugo will output the built site
 into <code>./public/</code>. Because of the aforementioned expectation of GitHub pages,
-We need that directory to map to somehow map to our master branch. Enter git worktrees.</p>
+we need that directory to map to somehow map to our master branch. Enter git worktrees.</p>
 <p>Worktrees allow one to checkout multiple working copies of a repo into different
 directories backed by the same local clone. Interestingly, they can be nested, so
 we can make our <code>./public/</code> directory a worktree checkout of the master branch:</p>
