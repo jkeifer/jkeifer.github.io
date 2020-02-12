@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+    Create a static site with Hugo and GitHub pages
+     | Jarrett Keifer 
+  </title>
+  <link rel="stylesheet" href='https://jkeifer.github.io/css/site.min.78e9847d0a0d75b7b3cc67f3880ce6b364520a626ddff469ca96d809f0d30207b51dd6e5afb54b30eaf4ca1941047425cbe53e3c40806ab4b41885469dda9b3c.css' integrity='sha512-eOmEfQoNdbezzGfziAzms2RSCmJt3/RpypbYCfDTAge1Hdblr7VLMOr0yhlBBHQly&#43;U&#43;PECAarS0GIVGndqbPA=='>
+  <link rel="canonical" href="https://jkeifer.github.io/posts/create-a-static-site-with-hugo-and-github-pages/">
+  <link rel="alternate" type="application/rss&#43;xml" href="https://jkeifer.github.io/index.xml" title="lost in tab">
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Jarrett Keifer">
+<meta name="description" content="As I mentioned in my first post, much of my resistance to blogging has been a blend of prefectionism and an abhorrence to any chance of having to deal with yet more infrastructure issue. That is, I deal with broken crap at my day job; I really don&rsquo;t want to have to worry about that for my blog. In that vein, I pursued the simplest practical stack with the quickest startup time, ending up with a static site generated with Hugo hosted as a GitHub page.">
+
+<meta property="og:title" content="Create a static site with Hugo and GitHub pages" />
+<meta property="og:description" content="As I mentioned in my first post, much of my resistance to blogging has been a blend of prefectionism and an abhorrence to any chance of having to deal with yet more infrastructure issue. That is, I deal with broken crap at my day job; I really don&rsquo;t want to have to worry about that for my blog. In that vein, I pursued the simplest practical stack with the quickest startup time, ending up with a static site generated with Hugo hosted as a GitHub page." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jkeifer.github.io/posts/create-a-static-site-with-hugo-and-github-pages/" />
+<meta property="article:published_time" content="2020-02-11T12:52:22-08:00" />
+<meta property="article:modified_time" content="2020-02-11T12:52:22-08:00" />
+
+
+</head>
+<body><nav class="navbar is-transparent " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      <figure class="image">
+        <img alt="" class="is-rounded" src="https://www.github.com/jkeifer.png?size=128">
+      </figure>
+    </a>
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      lost in tab
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      
+      <a class="navbar-item" href="https://jkeifer.github.io/tags/git/">
+        
+        Git
+        
+      </a>
+      
+      <a class="navbar-item" href="https://jkeifer.github.io/tags/github/">
+        
+        Github
+        
+      </a>
+      
+      <a class="navbar-item" href="https://jkeifer.github.io/tags/hugo/">
+        
+        Hugo
+        
+      </a>
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item" href="https://github.com/jkeifer/" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="github-circle" src='https://jkeifer.github.io/icons/svg/github-circle.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="https://linkedin.com/in/jarrettkeifer" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="linkedin" src='https://jkeifer.github.io/icons/svg/linkedin.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="mailto:" target="_blank">
+        <span class="icon">
+          <img alt="email" src='https://jkeifer.github.io/icons/svg/email.svg'>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://jkeifer.github.io/index.xml" target="_blank">
+        <span class="icon">
+          <img alt="rss" src='https://jkeifer.github.io/icons/svg/rss.svg'>
+        </span>
+      </a>
+      
+    </div>
+  </div>
+</nav>
+<section class="hero is-small is-info is-fullwidth">
+  <div class="hero-body">
+<div class="container">
+  <h1 class="title">
+    Create a static site with Hugo and GitHub pages
+  </h1>
+  <h2 class="subtitle">
+    <time datetime='2020-02-11T12:52:22-08:00'>
+      February 11, 2020
+    </time>
+    
+    <br>
+    
+    
+    
+    <a class="tag is-link" href="https://jkeifer.github.io/tags/hugo/">hugo</a>
+    
+    
+    
+    
+    <a class="tag is-link" href="https://jkeifer.github.io/tags/git/">git</a>
+    
+    
+    
+    
+    <a class="tag is-link" href="https://jkeifer.github.io/tags/github/">github</a>
+    
+    
+    
+  </h2>
+</div>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<div class="content is-medium">
+  <p>As I mentioned in my first post, much of my resistance to blogging
+has been a blend of prefectionism and an abhorrence to any chance
+of having to deal with yet more infrastructure issue.
+That is, I deal with broken crap at my day job; I really
+don&rsquo;t want to have to worry about that for my blog.
+In that vein, I pursued the simplest practical stack
+with the quickest startup time, ending up with a static
+site generated with <a href="https://gohugo.io/">Hugo</a>
+hosted as a GitHub page.</p>
+<p>I initially deliberated between making my own generator and choosing
+something premade. The &ldquo;quick startup time&rdquo; combined with my desire
+to support both markdown and org-mode input files meant a simple shell
+script of my own design probably wasn&rsquo;t the best choice. I also
+did not want to use something requiring node.js, nor did a ruby/python
+project feel like the most user-friendly path forward.</p>
+<p>Hugo, as a go program, is a single statically-linked binary, meaning
+less to worry about about and a quicker start. I had also played with
+it in the past and knew it was featureful enough that anything I might
+want to do in the future it would support. In the spirit of just getting
+this done, the decision was made, and I didn&rsquo;t look back.</p>
+<p>Installing Hugo is easy on Mac, just <code>brew install hugo</code>. Done.</p>
+<p>To actually create my blog, I started with the
+<a href="https://gohugo.io/getting-started/quick-start/">quick-start guide</a>. However,
+I ended up throwing it all away when I realized the default was not going to
+work well with
+<a href="https://help.github.com/en/github/working-with-github-pages/about-github-pages">GitHub pages</a>.
+That is, GitHub pages, for a user or organization page, expects the master
+branch of a repo to have the static site files in the root, namely the
+index.html file. But we don&rsquo;t want to pollute our source branch with
+the build files (more on that in a future post), so we need to have
+a separate branch with the hugo source content. Therefore, it became
+clear that setting up the repo <em>before</em> creating the hugo project is key.</p>
+<p>First we create a repo, make a source branch, and then we can create a hugo
+project in the repo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir your-blog
+$ cd your-blog
+$ git init
+$ git checkout -b src
+$ hugo new site . --force
+</code></pre></div><p>It is also good to add a <code>.gitignore</code> before we get much further:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat &gt; .gitignore <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74"># Hugo output directories
+</span><span style="color:#e6db74">/public
+</span><span style="color:#e6db74">/resources
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">## OS Files
+</span><span style="color:#e6db74"># Windows
+</span><span style="color:#e6db74">Thumbs.db
+</span><span style="color:#e6db74">ehthumbs.db
+</span><span style="color:#e6db74">Desktop.ini
+</span><span style="color:#e6db74">$RECYCLE.BIN/
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"># OSX
+</span><span style="color:#e6db74">.DS_Store
+</span><span style="color:#e6db74">EOF</span>
+</code></pre></div><p>We&rsquo;ll also need to create a repo on GitHub, obviously. For a user/orgnaization
+GitHub pages site, the repo needs to be named like <code>your-username.github.io</code>,
+and when we publish content it will be available at that URL.</p>
+<p>Now that we have some files and a GitHub repo, let&rsquo;s commit and push this src branch:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git add .
+$ git commit -m <span style="color:#e6db74">&#34;inital commit&#34;</span>
+$ git remote add origin git@github.com:your-username/your-blog.git
+$ git push -u origin src
+</code></pre></div><p>We now have a Hugo project, but it still needs some setup.
+Following the quickstart guide, we need to add a theme and some content.
+Then we can run the local server to validate everything works.
+I chose to start with the
+<a href="https://themes.gohugo.io/bare-hugo-theme/">Bare theme</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git submodule add https://github.com/orf/bare-hugo-theme.git themes/bare
+$ git submodule update --init --recursive  <span style="color:#75715e"># actually clone the submodule</span>
+$ hugo new content/posts/first_post.md
+<span style="color:#75715e"># edit your post and set draft to false</span>
+$ hugo server  <span style="color:#75715e"># test the site, accessible at localhost:1313</span>
+</code></pre></div><p>Great, but how do we publish this? By default Hugo will output the built site
+into <code>./public/</code>. Because of the aforementioned expectation of GitHub pages,
+We need that directory to map to somehow map to our master branch. Enter git worktrees.</p>
+<p>Worktrees allow one to checkout multiple working copies of a repo into different
+directories backed by the same local clone. Interestingly, they can be nested, so
+we can make our <code>./public/</code> directory a worktree checkout of the master branch:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout --orphan master  <span style="color:#75715e"># create the master branch with no parent commits</span>
+$ git commit --allow-empty -m <span style="color:#e6db74">&#34;initial content branch&#34;</span>
+$ git push origin master
+$ git checkout src
+$ git worktree add -B master public origin/master
+</code></pre></div><p>Now a Hugo build will create files in the master branch via our ./public/ worktree.
+We can commit and push everything, and our content should show up on our Github pages site:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ hugo  <span style="color:#75715e"># build the site into ./public/</span>
+$ git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;new content added&#34;</span>
+$ <span style="color:#f92672">(</span>cd public <span style="color:#f92672">&amp;&amp;</span> git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#34;publish new site content&#34;</span><span style="color:#f92672">)</span>
+$ git push --all
+</code></pre></div><p>And there it is, a Hugo site hosted on GitHub pages.</p>
+<p>(I&rsquo;ll note that I did consult the
+<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hugo GitHub pages documentation</a>,
+but it does not provide any instructions for a user/org account
+on separate branches in the same repo, as I desired.)</p>
+
+</div>
+
+
+  </div>
+</section><footer class="footer">
+  <div class="content has-text-centered">
+    
+    
+    <p>
+      
+      
+    </p>
+    
+  </div>
+</footer>
+
+
+</body>
+</html>
