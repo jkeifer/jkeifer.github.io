@@ -3,10 +3,6 @@ title: "Create a static site with Hugo and GitHub pages"
 date: 2020-02-11T12:52:22-08:00
 draft: false
 url: /posts/create-a-static-site-with-hugo-and-github-pages
-tags:
-- hugo
-- git
-- github
 ---
 
 As I mentioned in my first post, much of my resistance to blogging
@@ -106,7 +102,7 @@ $ hugo server  # test the site, accessible at localhost:1313
 
 Great, but how do we publish this? By default Hugo will output the built site
 into `./public/`. Because of the aforementioned expectation of GitHub pages,
-We need that directory to map to somehow map to our master branch. Enter git worktrees.
+we need that directory to map to somehow map to our master branch. Enter git worktrees.
 
 Worktrees allow one to checkout multiple working copies of a repo into different
 directories backed by the same local clone. Interestingly, they can be nested, so
