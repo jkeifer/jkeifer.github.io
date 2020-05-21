@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-FORCE_BUILD=false
+FORCE_BUILD=true
 
 REMOTE=origin
 BRANCH=master
