@@ -87,4 +87,5 @@ social() {
 > social /dev/tty.usbserial-AI066OQC 115200
 ```
 
-Drop that in your .bashrc or equivalent and off you go. Happy console-ing!
+Drop that in your .bashrc or equivalent and off you go. Kill the connection with ctrl+o
+per the escape code. Happy console-ing!
