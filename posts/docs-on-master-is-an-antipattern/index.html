@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+    Docs on master is an antipattern?
+     | Jarrett Keifer 
+  </title>
+  <link rel="stylesheet" href='https://jkeifer.github.io/css/site.min.78e9847d0a0d75b7b3cc67f3880ce6b364520a626ddff469ca96d809f0d30207b51dd6e5afb54b30eaf4ca1941047425cbe53e3c40806ab4b41885469dda9b3c.css' integrity='sha512-eOmEfQoNdbezzGfziAzms2RSCmJt3/RpypbYCfDTAge1Hdblr7VLMOr0yhlBBHQly&#43;U&#43;PECAarS0GIVGndqbPA=='>
+  <link rel="canonical" href="https://jkeifer.github.io/posts/docs-on-master-is-an-antipattern/">
+  <link rel="alternate" type="application/rss&#43;xml" href="https://jkeifer.github.io/index.xml" title="lost in tab">
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Jarrett Keifer">
+<meta name="description" content="While I was setting up this blog recently, I had to clone a repo to get a copy of the theme that I wanted to use. When I did so, I was shocked to find the download took a couple of minutes and had over 73 MB of files.
+Not sure what, in a CSS dependency, could take up so much space, I started digging through the disk usage, and found this damning report:">
+
+<meta property="og:title" content="Docs on master is an antipattern?" />
+<meta property="og:description" content="While I was setting up this blog recently, I had to clone a repo to get a copy of the theme that I wanted to use. When I did so, I was shocked to find the download took a couple of minutes and had over 73 MB of files.
+Not sure what, in a CSS dependency, could take up so much space, I started digging through the disk usage, and found this damning report:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jkeifer.github.io/posts/docs-on-master-is-an-antipattern/" />
+<meta property="article:published_time" content="2020-02-14T15:03:17-08:00" />
+<meta property="article:modified_time" content="2020-02-14T15:03:17-08:00" />
+
+
+</head>
+<body><nav class="navbar is-transparent " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      <figure class="image">
+        <img alt="" class="is-rounded" src="https://www.github.com/jkeifer.png?size=128">
+      </figure>
+    </a>
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      lost in tab
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      
+      <a class="navbar-item" href="https://jkeifer.github.io/tags/antipattern/">
+        
+        Antipattern
+        
+      </a>
+      
+      <a class="navbar-item" href="https://jkeifer.github.io/tags/git/">
+        
+        Git
+        
+      </a>
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item" href="https://github.com/jkeifer/" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="github-circle" src='https://jkeifer.github.io/icons/svg/github-circle.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="https://linkedin.com/in/jarrettkeifer" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="linkedin" src='https://jkeifer.github.io/icons/svg/linkedin.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="mailto:" target="_blank">
+        <span class="icon">
+          <img alt="email" src='https://jkeifer.github.io/icons/svg/email.svg'>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://jkeifer.github.io/index.xml" target="_blank">
+        <span class="icon">
+          <img alt="rss" src='https://jkeifer.github.io/icons/svg/rss.svg'>
+        </span>
+      </a>
+      
+    </div>
+  </div>
+</nav>
+<section class="hero is-small is-info is-fullwidth">
+  <div class="hero-body">
+<div class="container">
+  <h1 class="title">
+    Docs on master is an antipattern?
+  </h1>
+  <h2 class="subtitle">
+    <time datetime='2020-02-14T15:03:17-08:00'>
+      February 14, 2020
+    </time>
+    
+    <br>
+    
+    
+    
+    <a class="tag is-link" href="https://jkeifer.github.io/tags/git/">git</a>
+    
+    
+    
+    
+    <a class="tag is-link" href="https://jkeifer.github.io/tags/antipattern/">antipattern</a>
+    
+    
+    
+  </h2>
+</div>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<div class="content is-medium">
+  <p>While I was setting up this blog recently, I had to clone a repo
+to get a copy of the theme that I wanted to use. When I did so,
+I was shocked to find the download took a couple of minutes and
+had over 73 MB of files.</p>
+<p>Not sure what, in a CSS dependency, could take up so much space,
+I started digging through the disk usage, and found this damning
+report:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">❯ du -h -d <span style="color:#ae81ff">1</span> .
+4.0K	./test
+508K	./css
+ 72M	./docs
+ 20K	./.github
+260K	./sass
+ 73M	.
+</code></pre></div><p>Literally, more than 98% of the size of the repo was consumed by
+the docs.</p>
+<p>Now in this specific case, the majority of that space was consumed
+by images for the documentation. Binary files in git are already
+a bit of an issue (particulary if they are updated with any frequency),
+but this leads me to question: are docs on the same branch as code
+an antipattern?</p>
+<p>If the docs were separated onto a different branch, the repo could be
+cloned (including this specific case of a submodule included in a
+different repo) sparsely such that these files could not need to be
+included.</p>
+<ul>
+<li>
+<p>recent experience cloning a repo</p>
+<ul>
+<li>show du of the repo root</li>
+<li>breakdown by % for docs</li>
+</ul>
+</li>
+<li>
+<p>realize that changes to docs will persist in the git history FOREVER</p>
+</li>
+<li>
+<p>Why did anyone think this was a good idea?</p>
+<ul>
+<li>acknowledge that it is easier to understand</li>
+<li>older versions of git made it harder</li>
+<li>the docs are right there on github without digging around for the doc branch</li>
+</ul>
+</li>
+<li>
+<p>Generated resources (generally)</p>
+</li>
+</ul>
+
+</div>
+
+
+  </div>
+</section><footer class="footer">
+  <div class="content has-text-centered">
+    
+    
+    <p>
+      
+      
+    </p>
+    
+  </div>
+</footer>
+
+
+</body>
+</html>

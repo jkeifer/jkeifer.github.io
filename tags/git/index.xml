@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on lost in tab</title>
+    <link>https://jkeifer.github.io/tags/git/</link>
+    <description>Recent content in git on lost in tab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Feb 2020 15:03:17 -0800</lastBuildDate>
+    
+	<atom:link href="https://jkeifer.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docs on master is an antipattern?</title>
+      <link>https://jkeifer.github.io/posts/docs-on-master-is-an-antipattern/</link>
+      <pubDate>Fri, 14 Feb 2020 15:03:17 -0800</pubDate>
+      
+      <guid>https://jkeifer.github.io/posts/docs-on-master-is-an-antipattern/</guid>
+      <description>While I was setting up this blog recently, I had to clone a repo to get a copy of the theme that I wanted to use. When I did so, I was shocked to find the download took a couple of minutes and had over 73 MB of files.
+Not sure what, in a CSS dependency, could take up so much space, I started digging through the disk usage, and found this damning report:</description>
+    </item>
+    
+  </channel>
+</rss>

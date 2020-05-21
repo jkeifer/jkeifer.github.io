@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+    Serial with socat
+     | Jarrett Keifer 
+  </title>
+  <link rel="stylesheet" href='https://jkeifer.github.io/css/site.min.78e9847d0a0d75b7b3cc67f3880ce6b364520a626ddff469ca96d809f0d30207b51dd6e5afb54b30eaf4ca1941047425cbe53e3c40806ab4b41885469dda9b3c.css' integrity='sha512-eOmEfQoNdbezzGfziAzms2RSCmJt3/RpypbYCfDTAge1Hdblr7VLMOr0yhlBBHQly&#43;U&#43;PECAarS0GIVGndqbPA=='>
+  <link rel="canonical" href="https://jkeifer.github.io/posts/serial-with-socat/">
+  <link rel="alternate" type="application/rss&#43;xml" href="https://jkeifer.github.io/index.xml" title="lost in tab">
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Jarrett Keifer">
+<meta name="description" content="Introduction I do a lot of work with network devices, which are often headless and require the use of serial consoles for out-of-band access. My go-to on MacOS and Linux has been screen, but various little issues over the years have led me to consider other options. I tried minicom on the recommendation of a colleague, but that didn&rsquo;t work for me either.
+I&rsquo;ve struggled to pinpoint my problem with the aforementioned tools; I think I just want something less featurful, something that literally only gives me a tty via serial and doesn&rsquo;t have anything unnecessary between my terminal and the remote shell.">
+
+<meta property="og:title" content="Serial with socat" />
+<meta property="og:description" content="Introduction I do a lot of work with network devices, which are often headless and require the use of serial consoles for out-of-band access. My go-to on MacOS and Linux has been screen, but various little issues over the years have led me to consider other options. I tried minicom on the recommendation of a colleague, but that didn&rsquo;t work for me either.
+I&rsquo;ve struggled to pinpoint my problem with the aforementioned tools; I think I just want something less featurful, something that literally only gives me a tty via serial and doesn&rsquo;t have anything unnecessary between my terminal and the remote shell." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jkeifer.github.io/posts/serial-with-socat/" />
+<meta property="article:published_time" content="2020-05-20T23:00:39-07:00" />
+<meta property="article:modified_time" content="2020-05-20T23:00:39-07:00" />
+
+
+</head>
+<body><nav class="navbar is-transparent " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      <figure class="image">
+        <img alt="" class="is-rounded" src="https://www.github.com/jkeifer.png?size=128">
+      </figure>
+    </a>
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      lost in tab
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item" href="https://github.com/jkeifer/" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="github-circle" src='https://jkeifer.github.io/icons/svg/github-circle.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="https://linkedin.com/in/jarrettkeifer" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="linkedin" src='https://jkeifer.github.io/icons/svg/linkedin.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="mailto:" target="_blank">
+        <span class="icon">
+          <img alt="email" src='https://jkeifer.github.io/icons/svg/email.svg'>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://jkeifer.github.io/index.xml" target="_blank">
+        <span class="icon">
+          <img alt="rss" src='https://jkeifer.github.io/icons/svg/rss.svg'>
+        </span>
+      </a>
+      
+    </div>
+  </div>
+</nav>
+<section class="hero is-small is-info is-fullwidth">
+  <div class="hero-body">
+<div class="container">
+  <h1 class="title">
+    Serial with socat
+  </h1>
+  <h2 class="subtitle">
+    <time datetime='2020-05-20T23:00:39-07:00'>
+      May 20, 2020
+    </time>
+    
+  </h2>
+</div>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<div class="content is-medium">
+  <h2 id="introduction">Introduction</h2>
+<p>I do a lot of work with network devices, which are often headless and
+require the use of serial consoles for out-of-band access. My go-to on
+MacOS and Linux has been screen, but various little issues over the years
+have led me to consider other options. I tried minicom on the recommendation
+of a colleague, but that didn&rsquo;t work for me either.</p>
+<p>I&rsquo;ve struggled to pinpoint my problem with the aforementioned tools;
+I think I just want something <em>less</em> featurful, something that literally only
+gives me a tty via serial and doesn&rsquo;t have anything unnecessary between
+my terminal and the remote shell. Over the weekend, I randomly happened upon
+<a href="https://bloggerbust.ca/post/let-socket-cat-be-thy-glue-over-serial/">an article about using socat for serial</a>
+on <a href="https://news.ycombinator.com/">Hacker News</a>, and thought it might
+be just what I have been searching for. So I tried out the example
+and it failed miserably with the socat from Homebrew (MacOS being the OS
+on my daily driver).</p>
+<h2 id="what-went-wrong">What went wrong</h2>
+<p>I took the example command from the article and made the minimal changes
+for my environment (the name of my adapter&rsquo;s serial device), but right off
+the bat I got an error:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; socat -,rawer,escape<span style="color:#f92672">=</span>0x0f /dev/tty.usbserial-AI066OQC,b115200,rawer
+2020/05/20 22:25:06 socat<span style="color:#f92672">[</span>72638<span style="color:#f92672">]</span> E parseopts<span style="color:#f92672">(</span><span style="color:#f92672">)</span>: unknown option <span style="color:#e6db74">&#34;b115200&#34;</span>
+</code></pre></div><p>A quick google search turned up a number similar reports, and led me toward
+the <code>ispeed</code> and <code>ospeed</code> options. Reviewing the manpage for these parameters
+also suggests that the <code>b</code> option is not available on all operating systems,
+MacOS presumably among those. The manpage also explains these are used to set
+the baud rates for incoming and outgoing data on the line, respectively (anyone
+ever run into asymmetric serial speeds in the wild?). Anyway, that&rsquo;s an easy change:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; socat -,rawer,escape<span style="color:#f92672">=</span>0x0f /dev/tty.usbserial-AI066OQC,ispeed<span style="color:#f92672">=</span>115200,ospeed<span style="color:#f92672">=</span>115200,rawer
+<span style="color:#75715e"># and nothing at all happens, nor does the ctrl+o escape work</span>
+<span style="color:#75715e"># eventually I had to resort to a kill -9 in another window</span>
+</code></pre></div><p>Bummer. I guess it&rsquo;s not so easy after all.</p>
+<h1 id="not-all-hope-is-lost">Not all hope is lost</h1>
+<p>After far too long playing with permutations of options and searching the
+ends of the internet for suggestions, I finally found the magic incantation
+(with some hints from the sample command in
+<a href="https://stackoverflow.com/questions/14235786/usb-serial-port-on-mac-using-socat">this stack overflow question</a>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; socat -,rawer,escape<span style="color:#f92672">=</span>0x0f /dev/tty.usbserial-AI066OQC,clocal<span style="color:#f92672">=</span>1,nonblock<span style="color:#f92672">=</span>1,ispeed<span style="color:#f92672">=</span>115200,ospeed<span style="color:#f92672">=</span><span style="color:#ae81ff">115200</span>
+</code></pre></div><h1 id="the-final-solution">The final solution</h1>
+<p>I am really excited about this new way to connect via serial. If nothing
+else, ctrl+a goes to the beginning of the line with no other escape sequence,
+and I am not at the mercy of any scrollback buffer beyond that of iterm.
+Alone, those are two killer features and make it so a serial connection
+really isn&rsquo;t any different than any other terminal session I use throughout
+the day (besides perhaps speed).</p>
+<p>That said, the above solution isn&rsquo;t very pretty. But we can wrap it up as
+a shell function to make it easier to use:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># socat-serial =&gt; social</span>
+social<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    local DEV<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1?must specify the serial device<span style="color:#e6db74">}</span>; shift
+    local BAUD<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span>9600<span style="color:#e6db74">}</span>
+    socat -,rawer,escape<span style="color:#f92672">=</span>0x0f <span style="color:#e6db74">${</span>DEV<span style="color:#e6db74">}</span>,clocal<span style="color:#f92672">=</span>1,nonblock<span style="color:#f92672">=</span>1,ispeed<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>BAUD<span style="color:#e6db74">}</span>,ospeed<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>BAUD<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># now you can invoke like</span>
+&gt; social /dev/tty.usbserial-AI066OQC <span style="color:#ae81ff">115200</span>
+</code></pre></div><p>Drop that in your .bashrc or equivalent and off you go. Happy console-ing!</p>
+
+</div>
+
+
+  </div>
+</section><footer class="footer">
+  <div class="content has-text-centered">
+    
+    
+    <p>
+      
+      
+    </p>
+    
+  </div>
+</footer>
+
+
+</body>
+</html>
