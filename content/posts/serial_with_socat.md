@@ -63,7 +63,7 @@ ends of the internet for suggestions, I finally found the magic incantation
 ```
 
 
-# The final solution
+# The end solution
 
 I am really excited about this new way to connect via serial. If nothing
 else, ctrl+a goes to the beginning of the line with no other escape sequence,
@@ -88,4 +88,12 @@ social() {
 ```
 
 Drop that in your .bashrc or equivalent and off you go. Kill the connection with ctrl+o
-per the escape code. Happy console-ing!
+per the escape code.
+
+I don't have a need for more options, but `ixon/ixoff` turn flow
+control on and off, respectively, and `csX` where `X is number of bit can change the
+length of chars as needed. I am sure it supports other obscure parameters too; check the
+manpage. For heavy-duty uses a function alone might not suffice. I could totally see this
+evolving into a whole wapper script around socat, where needed.
+
+Happy console-ing!
