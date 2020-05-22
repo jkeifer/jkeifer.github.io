@@ -136,7 +136,7 @@ ends of the internet for suggestions, I finally found the magic incantation
 (with some hints from the sample command in
 <a href="https://stackoverflow.com/questions/14235786/usb-serial-port-on-mac-using-socat">this stack overflow question</a>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; socat -,rawer,escape<span style="color:#f92672">=</span>0x0f /dev/tty.usbserial-AI066OQC,clocal<span style="color:#f92672">=</span>1,nonblock<span style="color:#f92672">=</span>1,ispeed<span style="color:#f92672">=</span>115200,ospeed<span style="color:#f92672">=</span><span style="color:#ae81ff">115200</span>
-</code></pre></div><h1 id="the-final-solution">The final solution</h1>
+</code></pre></div><h1 id="the-end-solution">The end solution</h1>
 <p>I am really excited about this new way to connect via serial. If nothing
 else, ctrl+a goes to the beginning of the line with no other escape sequence,
 and I am not at the mercy of any scrollback buffer beyond that of iterm.
@@ -155,7 +155,13 @@ social<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <
 <span style="color:#75715e"># now you can invoke like</span>
 &gt; social /dev/tty.usbserial-AI066OQC <span style="color:#ae81ff">115200</span>
 </code></pre></div><p>Drop that in your .bashrc or equivalent and off you go. Kill the connection with ctrl+o
-per the escape code. Happy console-ing!</p>
+per the escape code.</p>
+<p>I don&rsquo;t have a need for more options, but <code>ixon/ixoff</code> turn flow
+control on and off, respectively, and <code>csX</code> where `X is number of bit can change the
+length of chars as needed. I am sure it supports other obscure parameters too; check the
+manpage. For heavy-duty uses a function alone might not suffice. I could totally see this
+evolving into a whole wapper script around socat, where needed.</p>
+<p>Happy console-ing!</p>
 
 </div>
 
