@@ -6,10 +6,20 @@
     <description>Recent content in Posts on lost in tab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2020 23:00:39 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 12:00:39 -0700</lastBuildDate>
     
 	<atom:link href="https://jkeifer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>QEMU services with socat</title>
+      <link>https://jkeifer.github.io/posts/qemu-services-with-socat/</link>
+      <pubDate>Fri, 19 Jun 2020 12:00:39 -0700</pubDate>
+      
+      <guid>https://jkeifer.github.io/posts/qemu-services-with-socat/</guid>
+      <description>QEMU Services? I&amp;rsquo;ve been working on an integration testing environment for a few interconnected services. Such a thing would be easy with containers, but I am modeling an environment of bare metal hosts running these services, leaving little choice but VMs. It&amp;rsquo;s been easy testing the VMs in isolation using QEMU, which by default with -nographic drops one into the console.
+But when one wants to kick off several VMs at once, it&amp;rsquo;s much easier if they can be started as services in the background.</description>
+    </item>
     
     <item>
       <title>Serial with socat</title>

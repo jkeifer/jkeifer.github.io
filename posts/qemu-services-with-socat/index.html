@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+    QEMU services with socat
+     | Jarrett Keifer 
+  </title>
+  <link rel="stylesheet" href='https://jkeifer.github.io/css/site.min.78e9847d0a0d75b7b3cc67f3880ce6b364520a626ddff469ca96d809f0d30207b51dd6e5afb54b30eaf4ca1941047425cbe53e3c40806ab4b41885469dda9b3c.css' integrity='sha512-eOmEfQoNdbezzGfziAzms2RSCmJt3/RpypbYCfDTAge1Hdblr7VLMOr0yhlBBHQly&#43;U&#43;PECAarS0GIVGndqbPA=='>
+  <link rel="canonical" href="https://jkeifer.github.io/posts/qemu-services-with-socat/">
+  <link rel="alternate" type="application/rss&#43;xml" href="https://jkeifer.github.io/index.xml" title="lost in tab">
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Jarrett Keifer">
+<meta name="description" content="QEMU Services? I&rsquo;ve been working on an integration testing environment for a few interconnected services. Such a thing would be easy with containers, but I am modeling an environment of bare metal hosts running these services, leaving little choice but VMs. It&rsquo;s been easy testing the VMs in isolation using QEMU, which by default with -nographic drops one into the console.
+But when one wants to kick off several VMs at once, it&rsquo;s much easier if they can be started as services in the background.">
+
+<meta property="og:title" content="QEMU services with socat" />
+<meta property="og:description" content="QEMU Services? I&rsquo;ve been working on an integration testing environment for a few interconnected services. Such a thing would be easy with containers, but I am modeling an environment of bare metal hosts running these services, leaving little choice but VMs. It&rsquo;s been easy testing the VMs in isolation using QEMU, which by default with -nographic drops one into the console.
+But when one wants to kick off several VMs at once, it&rsquo;s much easier if they can be started as services in the background." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jkeifer.github.io/posts/qemu-services-with-socat/" />
+<meta property="article:published_time" content="2020-06-19T12:00:39-07:00" />
+<meta property="article:modified_time" content="2020-06-19T12:00:39-07:00" />
+
+
+</head>
+<body><nav class="navbar is-transparent " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      <figure class="image">
+        <img alt="" class="is-rounded" src="https://www.github.com/jkeifer.png?size=128">
+      </figure>
+    </a>
+    <a class="navbar-item" href="https://jkeifer.github.io/">
+      lost in tab
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item" href="https://github.com/jkeifer/" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="github-circle" src='https://jkeifer.github.io/icons/svg/github-circle.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="https://linkedin.com/in/jarrettkeifer" rel="noopener" target="_blank">
+        <span class="icon">
+          <img alt="linkedin" src='https://jkeifer.github.io/icons/svg/linkedin.svg'>
+        </span>
+      </a>
+      
+      <a class="navbar-item" href="mailto:" target="_blank">
+        <span class="icon">
+          <img alt="email" src='https://jkeifer.github.io/icons/svg/email.svg'>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://jkeifer.github.io/index.xml" target="_blank">
+        <span class="icon">
+          <img alt="rss" src='https://jkeifer.github.io/icons/svg/rss.svg'>
+        </span>
+      </a>
+      
+    </div>
+  </div>
+</nav>
+<section class="hero is-small is-info is-fullwidth">
+  <div class="hero-body">
+<div class="container">
+  <h1 class="title">
+    QEMU services with socat
+  </h1>
+  <h2 class="subtitle">
+    <time datetime='2020-06-19T12:00:39-07:00'>
+      June 19, 2020
+    </time>
+    
+  </h2>
+</div>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<div class="content is-medium">
+  <h1 id="qemu-services">QEMU Services?</h1>
+<p>I&rsquo;ve been working on an integration testing environment for a few
+interconnected services. Such a thing would be easy with containers,
+but I am modeling an environment of bare metal hosts running these services,
+leaving little choice but VMs. It&rsquo;s been easy testing the VMs
+in isolation using QEMU, which by default with <code>-nographic</code> drops
+one into the console.</p>
+<p>But when one wants to kick off several VMs at once, it&rsquo;s much easier
+if they can be started as services in the background. Any number of
+service supervisiors can run them, that&rsquo;s no problem. QEMU even has the
+<code>-daemonize</code> option to background itself.</p>
+<p>But now, with some backgrounded VM service, how can one connect to it
+and do things? No longer can we use the default console connection from
+<code>-nographic</code>.</p>
+<p>As I was trying to answer this question, I realized my
+<a href="https://jkeifer.github.io/posts/serial-with-socat/">recent experience with socat</a>
+might lend a hand&hellip;</p>
+<h1 id="what-does--nographic-do-anyway">What does <code>-nographic</code> do anyway?</h1>
+<p>It is a lot easier to know what way to go when you know where you started.
+So, before we go much further, it is probably good to understand what <code>-nographic</code>
+does.</p>
+<p>From what I could tell, the <code>-nographic</code> option does three things:</p>
+<ul>
+<li>Sets <code>-display none</code> to disable video output to the user.</li>
+<li>Sets <code>-echr 0x01</code> to make ctrl+a the escape sequence.</li>
+<li>Binds the monitor and serial connections to stdio like <code>-serial mon:stdio</code>.</li>
+</ul>
+<p>Well, at least the first of these is pretty obvious: we&rsquo;re trying to run
+headless services, so we want <code>-display none</code>.</p>
+<p>To understand the escape sequence, we also have to understand what that
+<code>-serial</code> option is. And what is the monitor?</p>
+<p>The manpage has all of this in detail, but it breaks down like this:</p>
+<ul>
+<li>The serial connection is what gives us console access.</li>
+<li>The &ldquo;monitor&rdquo; interface provides a way to control QEMU and the emulated
+hardware running the VM  after it is has started.</li>
+<li>The <code>-serial mon:stdio</code> is <em>multiplexing</em> the serial and monitor connections
+together onto a single file descriptor, in this case that being stdio.
+To access the multiplex controls, we need an escape sequence,
+set by the <code>-echr</code> options, which is ctrl+a by default.</li>
+<li>To get to the monitor connection from a multiplexed serial connection, one can
+use the escape sequence ctrl+a then press c.</li>
+</ul>
+<p>It is important to note that the serial and monitor connections do not have to be
+multiplexed, but can be bound to two different file descriptors. In fact one can
+configure multiple serial connections, if needed (though we only get one monitor).
+As these connection are bound to a file descriptor, we could bind these connections
+to named files, and then we get unix sockets we can use with other processes.
+And socat can connect to unix sockets!</p>
+<h1 id="how-i-ended-up-configuring-qemu">How I ended up configuring QEMU</h1>
+<p>To give the VM something that it can read from/write to for the serial and monitor
+connections, we actually end up emulating char devices. The <code>-serial mon:stdio</code> is
+shorthand for something like this:</p>
+<pre><code>-chardev stdio,id=char0,signal=off \
+-serial mon:char0
+</code></pre><p>Knowing that, we can put together the options in the manpage regarding unix sockets,
+to get something like this:</p>
+<pre><code>-chardev socket,id=char0,path=./monitor.sock,server,nowait \
+-mon chardev=char0 \
+-chardev socket,id=char1,path=./serial.sock,server,nowait \
+-serial chardev:char1
+</code></pre><p>If we add these options to our QEMU command, we&rsquo;ll end up with two files created in
+the current directory, both being unix sockets that we can connect to with socat.</p>
+<h1 id="the-socat-command">The socat command</h1>
+<pre><code>socat -,icanon=0,echo=0,isig=0,escape=0x0f UNIX-CONNECT:$SOCKET
+</code></pre><p>That&rsquo;s all there is to it, just sub <code>$SOCKET</code> with the name of the unix socket you
+want to connect to (<code>serial.sock</code> or <code>monitor.sock</code> in the QEMU example above).
+Then stdio will be connected to it. As in my previous post, this socat command looks
+and feels just like a native terminal connection. The only exception is the escape
+sequence here is ctrl+o, as I like to use ctrl+a to get to the beginning of the
+line.</p>
+<p>Regarding the options we set on the stdio side, we use the <code>icanon</code> option to disable
+canonical input mode, so we don&rsquo;t have to wait until we hit enter to pass the input
+along to the socket side, same as how a serial connection typically works. We also
+disable socat&rsquo;s echo, because the shell&rsquo;s echo on the other end of the connection should
+take care of that for us. <code>isig</code> we disable as well, as we don&rsquo;t want socat to handle
+signals but to send them along too.</p>
+<p>There you have it, socat for the win yet again. Truly, the more I understand what this
+tool can do, the more I see simple but powerful uses lying all around.</p>
+<p>Need a good way to level up you unix powers? Learn socat.</p>
+
+</div>
+
+
+  </div>
+</section><footer class="footer">
+  <div class="content has-text-centered">
+    
+    
+    <p>
+      
+      
+    </p>
+    
+  </div>
+</footer>
+
+
+</body>
+</html>
