@@ -1,6 +1,6 @@
 ---
 title: "QEMU services with socat"
-date: 2020-06-19T13:00:39-07:00
+date: 2020-06-19T12:00:39-07:00
 draft: false
 url: /posts/qemu-services-with-socat
 ---
