@@ -1,10 +1,106 @@
 :root {
     --max-width: 720px;
+    
+    /* Light mode colors */
     --text-color: #333;
     --bg-color: #fff;
     --link-color: #0066cc;
     --code-bg: #f4f4f4;
     --border-color: #ddd;
+    --footer-text: #666;
+    
+    /* Alert colors - light mode */
+    --note-bg: #f2f3f6;
+    --note-border: #3b82f6;
+    --tip-bg: #f0fdf4;
+    --tip-border: #22c55e;
+    --important-bg: #f3f0ff;
+    --important-border: #a855f7;
+    --warning-bg: #fefce8;
+    --warning-border: #facc15;
+    --caution-bg: #fef2f2;
+    --caution-border: #ef4444;
+    
+    /* Syntax highlighting background */
+    --highlight-bg: #282c34;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode colors */
+        --text-color: #e5e5e5;
+        --bg-color: #1a1a1a;
+        --link-color: #66b3ff;
+        --code-bg: #2d2d2d;
+        --border-color: #404040;
+        --footer-text: #999;
+        
+        /* Alert colors - dark mode */
+        --note-bg: #1e293b;
+        --note-border: #3b82f6;
+        --tip-bg: #14532d;
+        --tip-border: #22c55e;
+        --important-bg: #2e1065;
+        --important-border: #a855f7;
+        --warning-bg: #422006;
+        --warning-border: #facc15;
+        --caution-bg: #450a0a;
+        --caution-border: #ef4444;
+        
+        /* Syntax highlighting background */
+        --highlight-bg: #1e1e1e;
+    }
+}
+
+/* Manual theme overrides */
+.theme-light {
+    /* Force light mode colors */
+    --text-color: #333;
+    --bg-color: #fff;
+    --link-color: #0066cc;
+    --code-bg: #f4f4f4;
+    --border-color: #ddd;
+    --footer-text: #666;
+    
+    /* Alert colors - light mode */
+    --note-bg: #f2f3f6;
+    --note-border: #3b82f6;
+    --tip-bg: #f0fdf4;
+    --tip-border: #22c55e;
+    --important-bg: #f3f0ff;
+    --important-border: #a855f7;
+    --warning-bg: #fefce8;
+    --warning-border: #facc15;
+    --caution-bg: #fef2f2;
+    --caution-border: #ef4444;
+    
+    /* Syntax highlighting background */
+    --highlight-bg: #282c34;
+}
+
+.theme-dark {
+    /* Force dark mode colors */
+    --text-color: #e5e5e5;
+    --bg-color: #1a1a1a;
+    --link-color: #66b3ff;
+    --code-bg: #2d2d2d;
+    --border-color: #404040;
+    --footer-text: #999;
+    
+    /* Alert colors - dark mode */
+    --note-bg: #1e293b;
+    --note-border: #3b82f6;
+    --tip-bg: #14532d;
+    --tip-border: #22c55e;
+    --important-bg: #2e1065;
+    --important-border: #a855f7;
+    --warning-bg: #422006;
+    --warning-border: #facc15;
+    --caution-bg: #450a0a;
+    --caution-border: #ef4444;
+    
+    /* Syntax highlighting background */
+    --highlight-bg: #1e1e1e;
 }
 
 * {
@@ -33,11 +129,39 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 header nav a {
     font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
     color: var(--text-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--code-bg);
+    border-color: var(--text-color);
+}
+
+#theme-toggle:focus {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
 }
 
 main {
@@ -49,7 +173,7 @@ footer {
     padding: 2rem 20px;
     border-top: 1px solid var(--border-color);
     text-align: center;
-    color: #666;
+    color: var(--footer-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +208,7 @@ article header h1 {
 }
 
 article header time {
-    color: #666;
+    color: var(--footer-text);
     font-size: 0.9rem;
 }
 
@@ -105,7 +229,7 @@ article header time {
     margin: 1rem 0;
     padding-left: 1rem;
     border-left: 3px solid var(--border-color);
-    color: #666;
+    color: var(--footer-text);
 }
 
 /* GitHub-style alerts */
@@ -137,32 +261,32 @@ article header time {
 }
 
 .content blockquote.note {
-    background-color: #f2f3f6;
-    border-left-color: #3b82f6;
+    background-color: var(--note-bg);
+    border-left-color: var(--note-border);
     color: var(--text-color);
 }
 
 .content blockquote.tip {
-    background-color: #f0fdf4;
-    border-left-color: #22c55e;
+    background-color: var(--tip-bg);
+    border-left-color: var(--tip-border);
     color: var(--text-color);
 }
 
 .content blockquote.important {
-    background-color: #f3f0ff;
-    border-left-color: #a855f7;
+    background-color: var(--important-bg);
+    border-left-color: var(--important-border);
     color: var(--text-color);
 }
 
 .content blockquote.warning {
-    background-color: #fefce8;
-    border-left-color: #facc15;
+    background-color: var(--warning-bg);
+    border-left-color: var(--warning-border);
     color: var(--text-color);
 }
 
 .content blockquote.caution {
-    background-color: #fef2f2;
-    border-left-color: #ef4444;
+    background-color: var(--caution-bg);
+    border-left-color: var(--caution-border);
     color: var(--text-color);
 }
 
@@ -207,7 +331,7 @@ ul.posts li {
 }
 
 ul.posts .date {
-    color: #666;
+    color: var(--footer-text);
     font-family: monospace;
     font-size: 0.9rem;
     margin-right: 1rem;

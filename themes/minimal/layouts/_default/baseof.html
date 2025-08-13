@@ -9,11 +9,15 @@
     <link rel="stylesheet" href="{{ . | relURL }}">
     {{ end }}
     {{ hugo.Generator }}
+    <script src="{{ "js/theme.js" | relURL }}"></script>
 </head>
 <body>
     <header>
         <nav>
             <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+            <button id="theme-toggle" type="button" aria-label="Toggle theme">
+                <span class="theme-icon">◐</span>
+            </button>
         </nav>
     </header>
     <main>
