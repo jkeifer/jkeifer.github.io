@@ -13,7 +13,7 @@
             <div class="post-info">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} <span class="draft-badge">draft</span>{{ end }}
                 {{ with .Params.summary }}
-                <div class="post-summary">{{ . }}</div>
+                <div class="post-summary">{{ . | markdownify }}</div>
                 {{ end }}
             </div>
         </div>

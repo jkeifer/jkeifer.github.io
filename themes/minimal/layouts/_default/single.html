@@ -22,7 +22,7 @@
     {{ if or (and (.Params.showSummary | default false) .Params.summary) .Params.note }}
     <div class="post-meta-box">
         {{ if and (.Params.showSummary | default false) .Params.summary }}
-        <div class="summary-text">{{ .Params.summary }}</div>
+        <div class="summary-text">{{ .Params.summary | markdownify }}</div>
         {{ end }}
         
         {{ with .Params.note }}

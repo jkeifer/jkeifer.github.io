@@ -5,7 +5,7 @@ lastmod: 2025-08-14T15:30:00-08:00
 draft: true
 description: "A comprehensive test of all markdown features"
 math: true
-summary: "Test page with various markdown features, for reference or theme development."
+summary: "Test page with various **markdown** features, for _reference_ or theme development."
 toc: true
 showSummary: true
 note: "This is a test note with a link to [example.com](https://example.com)"
@@ -24,7 +24,8 @@ This page tests all markdown features supported by Hugo and our custom theme.
 
 ## Text Formatting
 
-This is a paragraph with **bold text**, *italic text*, ***bold italic text***, and ~~strikethrough text~~.
+This is a paragraph with **bold text**, *italic text*, ***bold italic text***,
+and ~~strikethrough text~~.
 
 You can also use _underscores for italic_ and __double underscores for bold__.
 
@@ -260,4 +261,6 @@ Hugo supports emoji :smile: :heart: :rocket:
 
 ## Summary
 
-This page demonstrates the various markdown features available in Hugo. The rendering may vary based on your theme configuration and any custom shortcodes or render hooks you've implemented.
+This page demonstrates the various markdown features available in Hugo. The
+rendering may vary based on your theme configuration and any custom shortcodes
+or render hooks you've implemented.
