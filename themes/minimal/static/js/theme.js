@@ -41,6 +41,8 @@
 
     // Apply theme on page load
     document.addEventListener('DOMContentLoaded', function() {
+        // Add 'js' class to indicate JavaScript is enabled
+        document.documentElement.classList.add('js');
         applyTheme(currentTheme);
         
         // Add click handler to toggle button

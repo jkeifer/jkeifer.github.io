@@ -12,12 +12,20 @@
     <script src="{{ "js/theme.js" | relURL }}"></script>
 </head>
 <body>
+    <span id="light"></span>
+    <span id="dark"></span>
     <header>
         <nav>
             <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
             <button id="theme-toggle" type="button" aria-label="Toggle theme">
                 <span class="theme-icon">◐</span>
             </button>
+            <noscript>
+                <div class="theme-switcher">
+                    <a href="#light" aria-label="Light theme">☀</a>
+                    <a href="#dark" aria-label="Dark theme">☾</a>
+                </div>
+            </noscript>
         </nav>
     </header>
     <main>
