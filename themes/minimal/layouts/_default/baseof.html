@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    {{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ . | relURL }}">
+    {{ end }}
+    {{ hugo.Generator }}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+        </nav>
+    </header>
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    <footer>
+        <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+    </footer>
+</body>
+</html>

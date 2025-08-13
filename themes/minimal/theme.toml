@@ -1,0 +1,12 @@
+name = "Minimal"
+license = "MIT"
+licenselink = ""
+description = "A minimal Hugo theme with clean typography and syntax highlighting"
+homepage = ""
+tags = []
+features = ["syntax highlighting", "minimal", "clean"]
+min_version = "0.41.0"
+
+[author]
+  name = "Your Name"
+  homepage = ""

@@ -1,0 +1,230 @@
+:root {
+    --max-width: 720px;
+    --text-color: #333;
+    --bg-color: #fff;
+    --link-color: #0066cc;
+    --code-bg: #f4f4f4;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header nav a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+main {
+    padding: 2rem 20px;
+    min-height: calc(100vh - 200px);
+}
+
+footer {
+    padding: 2rem 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article header {
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+article header h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+article header time {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.content {
+    margin-top: 2rem;
+}
+
+.content p {
+    margin-bottom: 1rem;
+}
+
+.content ul, .content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.content blockquote {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--border-color);
+    color: #666;
+}
+
+/* GitHub-style alerts */
+.content blockquote.note,
+.content blockquote.tip,
+.content blockquote.important,
+.content blockquote.warning,
+.content blockquote.caution {
+    padding: 0.75rem 1rem;
+    border-left-width: 4px;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.content blockquote.note > :first-child,
+.content blockquote.tip > :first-child,
+.content blockquote.important > :first-child,
+.content blockquote.warning > :first-child,
+.content blockquote.caution > :first-child {
+    margin-top: 0;
+}
+
+.content blockquote.note > :last-child,
+.content blockquote.tip > :last-child,
+.content blockquote.important > :last-child,
+.content blockquote.warning > :last-child,
+.content blockquote.caution > :last-child {
+    margin-bottom: 0;
+}
+
+.content blockquote.note {
+    background-color: #f2f3f6;
+    border-left-color: #3b82f6;
+    color: var(--text-color);
+}
+
+.content blockquote.tip {
+    background-color: #f0fdf4;
+    border-left-color: #22c55e;
+    color: var(--text-color);
+}
+
+.content blockquote.important {
+    background-color: #f3f0ff;
+    border-left-color: #a855f7;
+    color: var(--text-color);
+}
+
+.content blockquote.warning {
+    background-color: #fefce8;
+    border-left-color: #facc15;
+    color: var(--text-color);
+}
+
+.content blockquote.caution {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+    color: var(--text-color);
+}
+
+code {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 0.9em;
+    background-color: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+pre {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    font-size: 0.875rem;
+}
+
+.highlight {
+    margin: 1rem 0;
+}
+
+.highlight pre {
+    margin: 0;
+    padding: 1rem;
+}
+
+ul.posts {
+    list-style: none;
+    padding: 0;
+}
+
+ul.posts li {
+    margin-bottom: 0.75rem;
+}
+
+ul.posts .date {
+    color: #666;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.1rem; }
+
+    ul.posts .date {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 0.25rem;
+    }
+}

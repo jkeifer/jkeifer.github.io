@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Site.Title }}</h1>
+{{ with .Site.Params.description }}
+<p>{{ . }}</p>
+{{ end }}
+
+<h2>Recent Posts</h2>
+<ul class="posts">
+    {{ range first 10 (where .Site.RegularPages "Type" "posts") }}
+    <li>
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
