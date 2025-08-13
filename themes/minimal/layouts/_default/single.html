@@ -19,9 +19,15 @@
         </div>
     </header>
     
-    {{ if and (.Params.showSummary | default false) .Params.summary }}
-    <div class="post-summary">
-        <p>{{ .Params.summary }}</p>
+    {{ if or (and (.Params.showSummary | default false) .Params.summary) .Params.note }}
+    <div class="post-meta-box">
+        {{ if and (.Params.showSummary | default false) .Params.summary }}
+        <div class="summary-text">{{ .Params.summary }}</div>
+        {{ end }}
+        
+        {{ with .Params.note }}
+        <div class="note-text">{{ . | markdownify }}</div>
+        {{ end }}
     </div>
     {{ end }}
     
