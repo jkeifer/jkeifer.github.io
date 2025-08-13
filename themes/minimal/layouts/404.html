@@ -1,0 +1,30 @@
+{{ define "title" }}404 - {{ .Site.Title | lower }}{{ end }}
+
+{{ define "main" }}
+<article class="error-404">
+    <header>
+        <h1>404</h1>
+        <p class="subtitle">lost in tab... literally</p>
+    </header>
+    <div class="content">
+        <p>looks like you've wandered into the void between tabs.</p>
+        
+        <p>this page might have:</p>
+        <ul>
+            <li>been closed accidentally while juggling 47 browser tabs</li>
+            <li>fallen into the great tab abyss of 2020</li>
+            <li>achieved enlightenment and transcended urls</li>
+            <li>never existed (but can we really be sure?)</li>
+        </ul>
+        
+        <p>while you're here in the digital wilderness, why not:</p>
+        <ul>
+            <li><a href="{{ "/" | relURL }}">return to safety</a></li>
+            <li><a href="{{ "posts/" | relURL }}">browse all posts</a></li>
+            <li>contemplate the impermanence of hyperlinks</li>
+        </ul>
+        
+        <p class="error-code">error 404: page not found</p>
+    </div>
+</article>
+{{ end }}

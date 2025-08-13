@@ -1,16 +1,27 @@
 {{ define "main" }}
-<h1>{{ .Site.Title }}</h1>
+<h1>{{ .Site.Title | lower }}</h1>
 {{ with .Site.Params.description }}
 <p>{{ . }}</p>
 {{ end }}
 
-<h2>Recent Posts</h2>
+<h2>recent posts</h2>
 <ul class="posts">
     {{ range first 10 (where .Site.RegularPages "Type" "posts") }}
     <li>
-        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <div class="post-entry">
+            <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+            <div class="post-info">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} <span class="draft-badge">draft</span>{{ end }}
+                {{ with .Params.summary }}
+                <div class="post-summary">{{ . }}</div>
+                {{ end }}
+            </div>
+        </div>
     </li>
     {{ end }}
 </ul>
+
+<p class="view-all">
+    <a href="{{ "posts/" | relURL }}">view all posts →</a>
+</p>
 {{ end }}

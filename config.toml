@@ -1,7 +1,10 @@
-baseURL = "https://jkeifer.github.io/"
+baseURL = "https://teotl.dev/"
 languageCode = "en-us"
-title = "lost in tab"
+title = "Lost in Tab"
 theme = "minimal"
+
+[pagination]
+  pagerSize = 25
 
 [markup]
   [markup.goldmark]
@@ -18,12 +21,23 @@ theme = "minimal"
 [params]
 mainSections = ["posts"]
 author = "Jarrett Keifer"
-email = ""
-description = 'Network and GIS Software Engineer in the Pacific NW'
+#email = ""
+#description = 'Network and GIS Software Engineer in the Pacific NW'
 postcss = false
 # Include the author name in the <title> of articles
 includeAuthorInTitle = true
 disableAttribution = true
+
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
 [[params.social]]
 icon = "github-circle"

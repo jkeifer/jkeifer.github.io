@@ -1,11 +1,35 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<h1>{{ .Title | lower }}</h1>
+{{ $paginator := .Paginate .Pages }}
 <ul class="posts">
-    {{ range .Pages }}
+    {{ range $paginator.Pages }}
     <li>
-        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <div class="post-entry">
+            <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+            <div class="post-info">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} <span class="draft-badge">draft</span>{{ end }}
+                {{ with .Params.summary }}
+                <div class="post-summary">{{ . }}</div>
+                {{ end }}
+            </div>
+        </div>
     </li>
     {{ end }}
 </ul>
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← previous</a>
+    {{ end }}
+    
+    <span class="page-info">
+        page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}
+    </span>
+    
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">next →</a>
+    {{ end }}
+</nav>
+{{ end }}
 {{ end }}

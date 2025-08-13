@@ -1,13 +1,64 @@
-{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ .Title }} - {{ .Site.Title | lower }}{{ end }}
 
 {{ define "main" }}
 <article>
     <header>
-        <h1>{{ .Title }}</h1>
-        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
+        <div class="post-meta">
+            <time>{{ .Date.Format "January 2, 2006" }}</time>
+            <span class="reading-time">· {{ .ReadingTime }} min read</span>
+            {{ if .Draft }}<span class="draft-badge">· draft</span>{{ end }}
+        </div>
+        {{ if ne .Date .Lastmod }}
+        <div class="post-meta modified">
+            <span>last updated: {{ .Lastmod.Format "January 2, 2006" }}</span>
+        </div>
+        {{ end }}
+        <div class="print-only">
+            <span class="permalink">{{ .Permalink }}</span>
+        </div>
     </header>
+    
+    {{ if and (.Params.showSummary | default false) .Params.summary }}
+    <div class="post-summary">
+        <p>{{ .Params.summary }}</p>
+    </div>
+    {{ end }}
+    
+    {{ if .Params.toc | default false }}
+    <nav class="toc">
+        {{ .TableOfContents }}
+    </nav>
+    {{ end }}
+    
     <div class="content">
         {{ .Content }}
     </div>
+
+    {{ if .Params.showRelated | default false }}
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ with $related }}
+    <section class="related-posts">
+        <h3>related posts</h3>
+        <ul>
+            {{ range . }}
+            <li>
+                <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+                <a href="{{ .Permalink }}">{{ .Title | lower }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+    {{ end }}
+
+    <nav class="post-nav">
+        {{ with .PrevInSection }}
+        <a class="prev" href="{{ .Permalink }}">← {{ .Title | lower }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a class="next" href="{{ .Permalink }}">{{ .Title | lower }} →</a>
+        {{ end }}
+    </nav>
 </article>
 {{ end }}
