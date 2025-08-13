@@ -1,3 +1,0 @@
-#!/bin/sh -eu
-# clone the theme(s)
-git submodule update --init --recursive
