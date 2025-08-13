@@ -46,7 +46,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Cache hugo resources
-        uses: actions/cache@v4V
+        uses: actions/cache@v4
         with:
           path: ${{ env.HUGO_CACHEDIR }}
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
