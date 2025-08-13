@@ -42,7 +42,6 @@ cloned (including this specific case of a submodule included in a
 different repo) sparsely such that these files could not need to be
 included.
 
-
 - recent experience cloning a repo
   - show du of the repo root
   - breakdown by % for docs
