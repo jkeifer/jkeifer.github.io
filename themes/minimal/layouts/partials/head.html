@@ -68,5 +68,9 @@
 </script>
 {{ end }}
 
+<script>
+// Add 'js' class immediately to prevent FOUC
+document.documentElement.classList.add('js');
+</script>
 <script src="{{ "js/theme.js" | relURL }}"></script>
 <script src="{{ "js/copy-code.js" | relURL }}" defer></script>
