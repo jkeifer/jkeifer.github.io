@@ -79,7 +79,7 @@ Term 2
 
 ### Images
 
-![Alt text for image](https://via.placeholder.com/600x400 "Image title")
+![Alt text for image](image.png "Image title")
 
 ## Code
 
