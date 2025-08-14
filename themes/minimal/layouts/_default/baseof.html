@@ -11,9 +11,9 @@
         <nav>
             <div class="nav-left">
                 <a href="{{ "/" | relURL }}" class="site-title">{{ .Site.Title | lower }}</a>
-                <a href="{{ "about/" | relURL }}">about</a>
-                <a href="{{ "posts/" | relURL }}">posts</a>
-                <a href="{{ "tags/" | relURL }}">tags</a>
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relURL }}">{{ .Name | lower }}</a>
+                {{ end }}
             </div>
             <div class="nav-controls">
                 <a href="{{ "index.xml" | relURL }}" class="rss-link" aria-label="rss feed">
