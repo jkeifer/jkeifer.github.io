@@ -10,6 +10,7 @@ toc: true
 showSummary: true
 note: "This is a test note with a link to [example.com](https://example.com)"
 canonicalUrl: "https://example.com"
+coauthors: ["[Jules Verne](https://example.com)", "Dick Tracy"]
 ---
 
 This page tests all markdown features supported by Hugo and our custom theme.

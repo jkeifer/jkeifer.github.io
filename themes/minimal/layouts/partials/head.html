@@ -14,7 +14,11 @@
 {{- end }}
 {{- end }}
 
+{{- with .Params.canonicalUrl }}
+<link rel="canonical" href="{{ . }}">
+{{- else }}
 <link rel="canonical" href="{{ .Permalink }}">
+{{- end}}
 
 {{- /* Open Graph */ -}}
 <meta property="og:title" content="{{ .Title }}">

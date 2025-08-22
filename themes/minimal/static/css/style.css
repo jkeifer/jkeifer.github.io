@@ -384,6 +384,12 @@ article header .post-meta.modified {
     font-style: italic;
 }
 
+article header .post-meta.coauthors {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 /* Draft badge */
 .draft-badge {
     display: inline-block;

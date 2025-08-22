@@ -4,6 +4,7 @@ date: {{ .Date }}
 draft: true
 summary: ""
 note: ""
+coauthors: []
 tags: []
 toc: false
 showSummary: false

@@ -14,6 +14,15 @@
             <span>last updated: {{ .Lastmod.Format "January 2, 2006" }}</span>
         </div>
         {{ end }}
+        {{ with .Params.coauthors }}
+        <div class="post-meta coauthors">
+            <span>co-authored with 
+            {{ range $i, $author := . }}
+                {{- if $i }}, {{ end }}{{ $author | markdownify -}}
+            {{ end }}
+            </span>
+        </div>
+        {{ end }}
         <div class="print-only">
             <span class="permalink">{{ .Permalink }}</span>
         </div>
