@@ -9,6 +9,7 @@ summary: "Test page with various **markdown** features, for _reference_ or theme
 toc: true
 showSummary: true
 note: "This is a test note with a link to [example.com](https://example.com)"
+canonicalUrl: "https://example.com"
 ---
 
 This page tests all markdown features supported by Hugo and our custom theme.
