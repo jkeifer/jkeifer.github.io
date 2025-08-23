@@ -1,6 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .Name "-" " " | }}"
 date: {{ .Date }}
+lastmod: {{ .Date }}
 draft: true
 summary: ""
 note: ""
@@ -9,4 +10,6 @@ tags: []
 toc: false
 showSummary: false
 showRelated: false
+canonicalUrl: ""
+math: false
 ---
