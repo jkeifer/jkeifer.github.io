@@ -2,6 +2,15 @@
 
 {{ define "main" }}
 <article>
+    {{ with .Params.image }}
+    <figure class="title-image" aria-label="Article hero image">
+        <img src="{{ . }}" alt="{{ with $.Params.imageAlt }}{{ . }}{{ else }}{{ $.Title }}{{ end }}">
+        {{ with $.Params.imageCaption }}
+        <figcaption>{{ . | markdownify }}</figcaption>
+        {{ end }}
+    </figure>
+    {{ end }}
+
     <header>
         <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
         <div class="post-meta">

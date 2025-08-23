@@ -7,6 +7,9 @@ summary: ""
 note: ""
 coauthors: []
 tags: []
+image: ""
+imageAlt: ""
+imageCaption: ""
 toc: false
 showSummary: false
 showRelated: false

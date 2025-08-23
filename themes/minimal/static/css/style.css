@@ -423,6 +423,27 @@ article header .draft-badge {
     display: none;
 }
 
+/* Title image */
+.title-image {
+    margin: 0 0 2rem 0;
+}
+
+.title-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.title-image figcaption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    font-style: italic;
+}
+
 /* Post summary (in lists) */
 .post-summary {
     margin-bottom: 2rem;
@@ -515,6 +536,13 @@ article header .draft-badge {
 
 .content p {
     margin-bottom: 1rem;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
 }
 
 .content ul, .content ol {
