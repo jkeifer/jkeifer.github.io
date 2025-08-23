@@ -5,18 +5,18 @@
     <header>
         <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
         <div class="post-meta">
-            <time>{{ .Date.Format "January 2, 2006" }}</time>
+            <time>{{ .Date.Format "2006-01-02" }}</time>
             <span class="reading-time">· {{ .ReadingTime }} min read</span>
             {{ if .Draft }}<span class="draft-badge">· draft</span>{{ end }}
         </div>
         {{ if ne .Date .Lastmod }}
         <div class="post-meta modified">
-            <span>last updated: {{ .Lastmod.Format "January 2, 2006" }}</span>
+            <span>last updated: {{ .Lastmod.Format "2006-01-02" }}</span>
         </div>
         {{ end }}
         {{ with .Params.coauthors }}
         <div class="post-meta coauthors">
-            <span>co-authored with 
+            <span>co-authored with
             {{ range $i, $author := . }}
                 {{- if $i }}, {{ end }}{{ $author | markdownify -}}
             {{ end }}
@@ -27,25 +27,25 @@
             <span class="permalink">{{ .Permalink }}</span>
         </div>
     </header>
-    
+
     {{ if or (and (.Params.showSummary | default false) .Params.summary) .Params.note }}
     <div class="post-meta-box">
         {{ if and (.Params.showSummary | default false) .Params.summary }}
         <div class="summary-text">{{ .Params.summary | markdownify }}</div>
         {{ end }}
-        
+
         {{ with .Params.note }}
         <div class="note-text">{{ . | markdownify }}</div>
         {{ end }}
     </div>
     {{ end }}
-    
+
     {{ if .Params.toc | default false }}
     <nav class="toc">
         {{ .TableOfContents }}
     </nav>
     {{ end }}
-    
+
     <div class="content">
         {{ .Content }}
     </div>
