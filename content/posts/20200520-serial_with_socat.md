@@ -1,8 +1,9 @@
 ---
 title: "Serial with socat"
 date: 2020-05-20T23:00:39-07:00
+lastmod: 2020-05-20T23:00:39-07:00
 draft: false
-url: /posts/serial-with-socat
+url: /posts/2020/05/20/serial-with-socat
 ---
 
 ## Introduction

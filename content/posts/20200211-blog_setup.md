@@ -1,8 +1,9 @@
 ---
 title: "Create a static site with Hugo and GitHub pages"
 date: 2020-02-11T12:52:22-08:00
+lastmod: 2020-02-11T12:52:22-08:00
 draft: false
-url: /posts/create-a-static-site-with-hugo-and-github-pages
+url: /posts/2020/02/11/create-a-static-site-with-hugo-and-github-pages
 ---
 
 As I mentioned in my first post, much of my resistance to blogging has been a
