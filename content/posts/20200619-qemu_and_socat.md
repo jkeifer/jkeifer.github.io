@@ -23,7 +23,7 @@ But now, with some backgrounded VM service, how can one connect to it and do
 things? No longer can we use the default console connection from `-nographic`.
 
 As I was trying to answer this question, I realized my [recent experience with
-socat]({{< ref "/posts/20200520-serial_with_socat.md" >}}) might lend a hand...
+socat](serial_with_socat) might lend a hand...
 
 ## What does `-nographic` do anyway?
 

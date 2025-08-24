@@ -1,0 +1,81 @@
+{{- $link := .Destination -}}
+{{- $isExternal := or (hasPrefix $link "http://") (hasPrefix $link "https://") (hasPrefix $link "//") -}}
+{{- $isAnchor := hasPrefix $link "#" -}}
+{{- $isMailto := hasPrefix $link "mailto:" -}}
+
+{{- if or $isExternal $isAnchor $isMailto -}}
+  {{- /* Handle external links, anchors, and mailto */ -}}
+  <a href="{{ $link }}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    {{- if $isExternal }} target="_blank" rel="noopener"{{ end -}}
+  >{{ .Text | safeHTML }}</a>
+{{- else -}}
+  {{- /* Handle internal links */ -}}
+  {{- $url := $link -}}
+  {{- $fragment := "" -}}
+  
+  {{- /* Extract fragment if present */ -}}
+  {{- if findRE "#" $link -}}
+    {{- $parts := split $link "#" -}}
+    {{- $link = index $parts 0 -}}
+    {{- $fragment = printf "#%s" (index $parts 1) -}}
+  {{- end -}}
+  
+  {{- /* Try to resolve the link to a page */ -}}
+  {{- $page := "" -}}
+  {{- $cleanLink := $link | replaceRE "\\.(md|markdown)$" "" -}}
+  
+  {{- /* Try different resolution strategies */ -}}
+  
+  {{- /* 1. Try as absolute path */ -}}
+  {{- if hasPrefix $link "/" -}}
+    {{- with site.GetPage $link -}}
+      {{- $page = . -}}
+    {{- else -}}
+      {{- with site.GetPage $cleanLink -}}
+        {{- $page = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* 2. For relative links, search all content */ -}}
+    {{- $bestMatch := "" -}}
+    {{- $exactMatch := "" -}}
+    
+    {{- /* Search through all pages */ -}}
+    {{- range site.Pages -}}
+      {{- if .File -}}
+        {{- $filename := .File.ContentBaseName -}}
+        {{- $slug := .Params.slug | default "" -}}
+        
+        {{- /* Check for exact matches first */ -}}
+        {{- if or (eq $filename $cleanLink) (eq $slug $cleanLink) (eq .File.BaseFileName $cleanLink) -}}
+          {{- $exactMatch = . -}}
+        {{- else if and (not $bestMatch) (strings.Contains $filename $cleanLink) -}}
+          {{- /* Fall back to partial matches */ -}}
+          {{- $bestMatch = . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    
+    {{- /* Use exact match if found, otherwise best match */ -}}
+    {{- with $exactMatch -}}
+      {{- $page = . -}}
+    {{- else -}}
+      {{- with $bestMatch -}}
+        {{- $page = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  
+  {{- /* Use the page's permalink if found, otherwise use original link */ -}}
+  {{- if $page -}}
+    {{- $url = printf "%s%s" $page.RelPermalink $fragment -}}
+  {{- else -}}
+    {{- $url = $link -}}
+  {{- end -}}
+  
+  <a href="{{ $url }}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    {{- if $page }} data-internal="true"{{ end -}}
+  >{{ .Text | safeHTML }}</a>
+{{- end -}}
