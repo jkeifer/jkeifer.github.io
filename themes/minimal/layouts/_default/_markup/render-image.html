@@ -1,0 +1,14 @@
+{{- $alt := .Text -}}
+{{- $src := .Destination -}}
+{{- $title := .Title -}}
+
+{{- if $title -}}
+  {{- /* If title is provided, render as figure with caption */ -}}
+  <figure>
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+    <figcaption>{{ $title | markdownify }}</figcaption>
+  </figure>
+{{- else -}}
+  {{- /* Regular image without caption */ -}}
+  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+{{- end -}}
