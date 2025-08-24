@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "Lost in Tab"
 theme = "minimal"
 
+[permalinks]
+  posts = "/posts/:year/:month/:day/:title/"
+
 [pagination]
   pagerSize = 25
 
