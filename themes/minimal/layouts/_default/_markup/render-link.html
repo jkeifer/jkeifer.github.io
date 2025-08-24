@@ -7,7 +7,6 @@
   {{- /* Handle external links, anchors, and mailto */ -}}
   <a href="{{ $link }}"
     {{- with .Title }} title="{{ . }}"{{ end -}}
-    {{- if $isExternal }} target="_blank" rel="noopener"{{ end -}}
   >{{ .Text | safeHTML }}</a>
 {{- else -}}
   {{- /* Handle internal links */ -}}
