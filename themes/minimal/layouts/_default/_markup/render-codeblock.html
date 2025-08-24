@@ -1,0 +1,20 @@
+{{- $caption := .Attributes.caption -}}
+{{- $lang := .Type -}}
+{{- $code := .Inner -}}
+
+{{- if $caption -}}
+<figure class="code-figure">
+  {{- if $lang -}}
+    {{- highlight $code $lang "" -}}
+  {{- else -}}
+    <pre><code>{{ $code }}</code></pre>
+  {{- end -}}
+  <figcaption>{{ $caption | markdownify }}</figcaption>
+</figure>
+{{- else -}}
+  {{- if $lang -}}
+    {{- highlight $code $lang "" -}}
+  {{- else -}}
+    <pre><code>{{ $code }}</code></pre>
+  {{- end -}}
+{{- end -}}
