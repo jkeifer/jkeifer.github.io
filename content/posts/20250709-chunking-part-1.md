@@ -122,7 +122,7 @@ complete row gets stored sequentially before moving to the next row.
 ![A grid system depicting an arrow weaving through the grid one row at a time,
 beginning on the left side of the row and going to the right before starting
 the next row. The bottom of the image says "Row-Major
-Order".](image2.png)
+Order".](image2.png?bg)
 
 For example, given a two-dimensional array of size 4×3 like:
 
@@ -165,7 +165,7 @@ sequentially.
 ![A grid system depicting an arrow weaving through the grid one column at a
 time, beginning on the top left side of the grid and going to the bottom of the
 column before starting the next column to the right. The bottom of the image
-says "Column-Major Order".](image4.png)
+says "Column-Major Order".](image4.png?bg)
 
 The same example 4×3 array from above would be stored as:
 
@@ -318,7 +318,7 @@ that says white each chunk to file. There are arrows pointing to labels (0/0),
 (0/1), (1/0), (1/1) which correlates to the quadrant that the chunks are in. At
 the bottom of the graphic it reads "Individual chunk files in Zarr means the
 chunks don't have to be linearized
-together"](image3.png)
+together"](image3.png?bg)
 
 Of course it is important to note that linearization still does apply here,
 just at a different layer. Using a file system to track which bytes on disk

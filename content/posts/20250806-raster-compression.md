@@ -454,7 +454,7 @@ following format: 1-bit sign, 8-bit exponent, 23-bit mantissa.
 is a chain of numbers with words under them. 0 is blue and it says sign
 underneath, 1000001_0 is green with "exponent" under it, and then
 1001000_00010001_00100010 is red with "Mantissa" under
-it.](image9.png)
+it.](image9.png?bg)
 
 The important takeaway from the above is that, assuming spatial autocorrelation
 within our dataset, values close together typically have the same sign, the
