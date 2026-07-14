@@ -24,6 +24,7 @@ tags:
   - vector
   - CNG
   - cloud-native
+  - data-formats
 image: "ccrp-logo.svg"
 toc: true
 showSummary: true

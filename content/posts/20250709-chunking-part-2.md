@@ -24,6 +24,10 @@ tags:
   - chunks
   - data-formats
   - landsat
+  - metadata
+  - geotiff
+  - netcdf
+  - stac
 toc: true
 showSummary: true
 showRelated: true
