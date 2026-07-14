@@ -1,14 +1,52 @@
 {{- $alt := .Text -}}
-{{- $src := .Destination -}}
 {{- $title := .Title -}}
+{{- $dest := .Destination -}}
+
+{{- /* Optional display options passed as a query string on the image destination:
+       ![alt](image.png?bg)              -> light gray "card": #f4f4f4 background, padding, rounded corners
+       ![alt](image.png?bg=ffffff)       -> custom background color (hex without the #, or a CSS color name)
+       ![alt](image.png?bg&radius=0)     -> square corners (opt out of the default 12px rounding)
+       ![alt](image.png?bg&radius=24)    -> custom corner radius in px
+       Options combine with "&". Useful for line-art diagrams with transparent
+       backgrounds so they stay legible in dark mode. */ -}}
+{{- $src := $dest -}}
+{{- $query := "" -}}
+{{- $parts := split $dest "?" -}}
+{{- if gt (len $parts) 1 -}}
+  {{- $src = index $parts 0 -}}
+  {{- $query = index $parts 1 -}}
+{{- end -}}
+
+{{- $class := "" -}}
+{{- $decls := slice -}}
+{{- range (split $query "&") -}}
+  {{- $kv := split . "=" -}}
+  {{- $k := index $kv 0 -}}
+  {{- $v := "" -}}
+  {{- if gt (len $kv) 1 -}}{{- $v = index $kv 1 -}}{{- end -}}
+  {{- if eq $k "bg" -}}
+    {{- $class = "img-card" -}}
+    {{- with $v -}}
+      {{- $color := . -}}
+      {{- if findRE "^[0-9a-fA-F]{3,8}$" $color -}}{{- $color = printf "#%s" $color -}}{{- end -}}
+      {{- $decls = $decls | append (printf "background-color: %s" $color) -}}
+    {{- end -}}
+  {{- else if eq $k "radius" -}}
+    {{- if findRE "^[0-9]+$" $v -}}
+      {{- $decls = $decls | append (printf "border-radius: %spx" $v) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $style := "" -}}
+{{- if $decls -}}{{- $style = printf "%s;" (delimit $decls "; ") -}}{{- end -}}
 
 {{- if $title -}}
   {{- /* If title is provided, render as figure with caption */ -}}
   <figure>
-    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
     <figcaption>{{ $title | markdownify }}</figcaption>
   </figure>
 {{- else -}}
   {{- /* Regular image without caption */ -}}
-  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
 {{- end -}}

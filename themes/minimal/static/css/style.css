@@ -543,6 +543,17 @@ article header .draft-badge {
     height: auto;
     display: block;
     margin: 1.5rem auto;
+    border-radius: 12px;
+}
+
+/* Opt-in image "card" via the ?bg[=color] option in image markup (see render-image.html).
+   Adds a light background (and padding) so transparent line-art diagrams stay legible
+   in dark mode. Corner rounding is a global default on .content img; use the ?radius=<px>
+   option (e.g. ?radius=0) to override it per image. */
+.content img.img-card {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .content figure {
@@ -552,7 +563,6 @@ article header .draft-badge {
 
 .content figure img {
     margin: 0 auto;
-    border-radius: 4px;
 }
 
 .content figure figcaption {
