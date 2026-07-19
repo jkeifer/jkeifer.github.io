@@ -196,6 +196,8 @@ header nav {
 .site-logo {
     width: 1.1em;
     height: 1.1em;
+    border-radius: 19%;
+    box-shadow: 0 0 0 1px var(--border-color);
 }
 
 .nav-controls {

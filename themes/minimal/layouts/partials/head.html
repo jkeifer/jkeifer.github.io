@@ -27,6 +27,8 @@
 <meta property="og:url" content="{{ .Permalink }}">
 {{- with .Params.image }}
 <meta property="og:image" content="{{ . | absURL }}">
+{{- else }}
+<meta property="og:image" content="{{ "logo.png" | absURL }}">
 {{- end }}
 
 {{- /* Twitter Card */ -}}
@@ -35,6 +37,8 @@
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 {{- with .Params.image }}
 <meta name="twitter:image" content="{{ . | absURL }}">
+{{- else }}
+<meta name="twitter:image" content="{{ "logo.png" | absURL }}">
 {{- end }}
 
 {{- /* Favicon */ -}}
