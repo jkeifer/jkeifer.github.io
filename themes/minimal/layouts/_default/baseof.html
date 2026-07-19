@@ -10,7 +10,7 @@
     <header>
         <nav>
             <div class="nav-left">
-                <a href="{{ "/" | relURL }}" class="site-title"><img class="site-logo" src="{{ "favicon.svg" | relURL }}" alt="">{{ .Site.Title | lower }}</a>
+                <a href="{{ "/" | relURL }}" class="site-title"><svg class="site-logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="var(--logo-bg)"/><rect x="37" y="39" width="10" height="10" fill="var(--logo-fg)"/></svg>{{ .Site.Title | lower }}</a>
                 {{ range .Site.Menus.main }}
                 <a href="{{ .URL | relURL }}">{{ .Name | lower }}</a>
                 {{ end }}

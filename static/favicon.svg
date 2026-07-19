@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#191631"/>
-  <rect x="37" y="39" width="10" height="10" fill="#f5f2ea"/>
+  <style>
+    .bg { fill: #191631; }
+    .dot { fill: #f5f2ea; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #f5f2ea; }
+      .dot { fill: #191631; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="12"/>
+  <rect class="dot" x="37" y="39" width="10" height="10"/>
 </svg>
