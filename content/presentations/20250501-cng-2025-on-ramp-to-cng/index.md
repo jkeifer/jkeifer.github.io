@@ -1,22 +1,57 @@
 ---
-title: "Deep Dive into Cloud-Native Geospatial Raster Formats"
-slug: "cng-2025-raster-formats-workshop"
+title: "On-ramp to CNG"
+slug: "cng-2025-on-ramp-to-cng"
 date: 2025-05-01
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "CNG Conference 2025"
 eventUrl: "https://web.archive.org/web/20250331202020/https://2025-ut.cloudnativegeo.org/agenda"
 location: "Snowbird, UT, USA"
+coauthors: ["Alex Leith"]
 note: >
-  delivered as parts 2–3 of the "On-ramp to CNG" workshop series, following
-  Alex Leith's introduction to cloud-native geospatial for Earth observation
+  a day-long, three-part workshop: part 1 presented by Alex Leith, parts 2–3
+  presented by Jarrett Keifer
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats", "cng"]
 links:
   - name: "slides (gdoc)"
     href: "https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48"
   - name: "github repository"
     href: "https://github.com/cng-raster-formats"
+summary: |
+  A day-long capacity-building workshop for professionals new to working with
+  cloud-native formats and workflows: an introduction to cloud-native
+  geospatial for Earth observation, followed by a deep dive into cloud-native
+  raster formats.
 ---
+
+The "On-ramp to CNG" workshop anchored the conference's capacity-building
+track for professionals new to working with cloud-native formats and
+workflows, delivered in three parts over a full day.
+
+## Part 1: Cloud-Native Geospatial for Earth Observation
+
+*Presented by Alex Leith.*
+
+The cloud native geospatial paradigm has the potential to make Earth
+observation analysis accessible to more people, more easily. In the simplest
+terms, instead of downloading data before performing an analysis, it's now
+possible to stream data directly from the cloud.
+
+This workshop will explore this new capability using hands-on practical
+exercises, introducing participants to the incredible global datasets
+available online and an opinionated suite of tools that can be used to access
+them. At the end of the workshop, participants will have gained insight into
+how this cloud-native geospatial paradigm can simplify working with Earth
+observation data, along with practical examples to assist in implementing
+learnings going forward. The workshop will include a real-world use case
+documenting land productivity metrics, which are used as part of monitoring
+for the UN Sustainable Development Goal indicators for 15.3.1. We'll explore
+this metric using NASA's Harmonized Landsat and Sentinel data accessed through
+Earthdata.
+
+## Parts 2–3: Deep Dive into Cloud-Native Geospatial Raster Formats
+
+*Presented by Jarrett Keifer.*
 
 Ever wonder what GDAL is doing under the hood when you read a GeoTIFF file?
 Doubly so when the file is a Cloud-optimized GeoTIFF (COG) on a remote server
@@ -56,6 +91,3 @@ exercise for geospatial data in Zarr format to see how that compares to our
 experience with COGs. Lastly we'll turn our attention to Kerchunk/VirtualiZarr
 to see how these technologies might allow us to optimize data access for
 non-cloud-native formats.
-
-This workshop will be presented via a combination of lecture and hands-on code
-notebooks.

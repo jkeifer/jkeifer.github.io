@@ -19,7 +19,7 @@ original external link alongside the archive.
       archive once per delivery if the deck changed between them, else once and
       link from each):
       https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48
-      → `20250501-cng-2025-raster-workshop/`, `20251103-foss4g-na-2025-raster-workshop/`,
+      → `20250501-cng-2025-on-ramp-to-cng/`, `20251103-foss4g-na-2025-raster-workshop/`,
         `20251117-foss4g-2025-raster-workshop/`
 - [ ] "Is Zarr the new COG?" deck (FOSS4G NA 2025 + FOSS4G 2025 shared):
       https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY
