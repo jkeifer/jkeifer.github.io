@@ -1,26 +1,22 @@
 ---
 title: "Is Zarr the new COG?"
-date: 2025-11-05
+slug: "foss4g-na-2025-is-zarr-the-new-cog"
+date: 2025-11-04
+ptype: "talk"
+talks: ["is zarr the new cog"]
+event: "FOSS4G NA 2025"
+location: "Reston, VA, USA"
+coauthors: ["Julia Signell"]
+note: "co-presented with Julia Signell"
+tags: ["zarr", "cog", "cloud-native", "data-formats"]
+links:
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
 summary: |
   Zarr is gaining traction in geospatial workflows—but is it replacing COG,
   complementing it, or something else entirely? We’ll unpack the formats’
   shared foundations, explore their tradeoffs, and offer a path toward better
   community guidance, tooling, and support.
-coauthors: ["Julia Signell"]
-presentations:
-  - location: "**FOSS4G** | Auckland, NZ"
-    date: 2025-11-19
-    links:
-      - name: slides (google)
-        href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
-      - name: talk submission
-        href: "https://talks.osgeo.org/foss4g-2025/talk/VFK79A/"
-  - location: "**FOSS4G NA** | Reston, VA, USA"
-    date: 2025-11-04
-    note: "co-presented with Julia Signell"
-    links:
-      - name: slides (google)
-        href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
 ---
 
 Cloud-Optimized GeoTIFF (COG) and Zarr have each earned their place in modern

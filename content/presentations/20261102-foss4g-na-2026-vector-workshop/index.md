@@ -1,21 +1,21 @@
 ---
-title: "Exploring Cloud Native Geospatial Data Formats: Vectors"
-date: 2025-11-05
+title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Vectors"
+slug: "foss4g-na-2026-vector-formats-workshop"
+date: 2026-11-02
 ptype: "workshop"
-representing: "Element 84"
+talks: ["cloud-native vector formats workshop"]
+event: "FOSS4G NA 2026"
+eventUrl: "https://talks.osgeo.org/foss4g-na-2026/talk/A838QC/"
+location: "Sacramento, CA, USA"
+tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
+links:
+  - name: "github repository"
+    href: "https://github.com/cng-vector-formats"
 summary: |
   Dig into geospatial vector formats—including GeoJSON, WKT/WKB, and
   cloud-native GeoParquet—using Python to see in detail how vector features are
   stored in each format and to understand what cloud-native means for vector
   data.
-links:
-  - name: github repository
-    href: "https://github.com/cng-vector-formats"
-presentations:
-  - conference: "FOSS4G"
-    location: "[**FOSS4G** | Auckland, NZ](https://talks.osgeo.org/foss4g-2025/talk/MHHJE7/)"
-    date: 2025-11-18
-    note: first presentation, a bit experimental
 ---
 
 Ever wonder what DuckDB is doing under the hood when you open a Parquet table?

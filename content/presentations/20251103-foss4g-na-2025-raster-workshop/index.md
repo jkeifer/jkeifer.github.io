@@ -1,47 +1,18 @@
 ---
 title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Raster Data"
-date: 2025-11-05
+slug: "foss4g-na-2025-raster-formats-workshop"
+date: 2025-11-03
 ptype: "workshop"
+talks: ["cloud-native raster formats workshop"]
+event: "FOSS4G NA 2025"
+eventUrl: "https://talks.osgeo.org/foss4g-na-2025/talk/MN7NCT/"
+location: "Reston, VA, USA"
+tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
-  - name: github repository
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48"
+  - name: "github repository"
     href: "https://github.com/cng-raster-formats"
-presentations:
-  - location: "**FOSS4G** | Auckland, NZ"
-    date: 2025-11-17
-    links:
-      - name: slides (gdoc)
-        href: https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48
-      - name: conference page
-        href: https://talks.osgeo.org/foss4g-2025/talk/KZGHTZ/
-  - location: "**FOSS4G NA** | Reston, VA"
-    date: 2025-11-03
-    links:
-      - name: slides (gdoc)
-        href: https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48
-      - name: conference page
-        href: https://talks.osgeo.org/foss4g-na-2025/talk/MN7NCT/
-  - location: "**CNG Conference** | Snowbird, UT"
-    date: 2025-05-01
-    title: "CNG for EO and Deep Dive into Cloud-Native Geospatial Raster Formats"
-    note: co-presented with Alex Leith as part of a broader workshop on cloud-native geo
-    links:
-      - name: slides (gdoc)
-        href: https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48
-      - name: conference page
-        href: https://conference.cloudnativegeo.org/CNGConference2025#/workshops
-  - location: "Virtual workshop for an Oceania geospatial user group"
-    date: 2025-01-15
-    links:
-      - name: slides (gdoc)
-        href: https://docs.google.com/presentation/d/1k5m2eYV8Tv4YrTAL6pfjmZMhls51cChW_QO1vcXH_0U/
-  - location: "FOSS4G | Belém, Brazil"
-    date: 2024-12-01
-    title: Deep Dive into Cloud-Native Geospatial Raster Formats
-    links:
-      - name: slides (gdoc)
-        href: https://docs.google.com/presentation/d/1qFckA0prY604I4dMkQlF1ZM-QSKS2ou4-YttgGQHzOU/
-      - name: conference page
-        href: https://talks.osgeo.org/foss4g-2024-workshop/talk/TNYSY9/
 ---
 
 Ever wonder what GDAL is doing under the hood when you read a GeoTIFF file?

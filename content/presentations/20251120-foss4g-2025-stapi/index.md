@@ -1,26 +1,21 @@
 ---
-title: "Community Standards and Satellite Tasking"
-date: 2025-11-05
+title: "State of STAPI: A community tasking standard"
+slug: "foss4g-2025-state-of-stapi"
+date: 2025-11-20
+ptype: "talk"
+talks: ["stapi community standard"]
+event: "FOSS4G 2025"
+eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/ASNWTC/"
+location: "Auckland, NZ"
+coauthors: ["Matt Hanson"]
+representing: "Element 84"
+note: "co-presented with Matt Hanson"
+tags: ["stac", "stapi", "open-source"]
 summary: |
   Explore STAPI, a specification for a Sensor Tasking API. We’ll highlight
   recent developments, showcase the open-source projects being developed in the
   ecosystem, and share the community's vision of increased interoperability
   driving the next generation of geospatial workflows.
-coauthors: ["Matt Hanson"]
-representing: "Element 84"
-presentations:
-  - location: "[**FOSS4G** | Auckland, NZ](https://talks.osgeo.org/foss4g-2025/talk/ASNWTC/)"
-    title: "State of STAPI: A community tasking standard"
-    date: 2025-11-20
-    note: co-presented with Matt Hanson
-  - location: "**FOSS4G NA** | Reston, VA, USA"
-    title: "State of STAPI: A community tasking standard"
-    date: 2025-11-04
-    note: co-presented with Matt Hanson
-  - location: "**FOSS4G** | Belém, Brazil"
-    title: "Community Standards and Satellite Tasking"
-    date: 2024-12-01
-    note: co-presented with Matt Hanson
 ---
 
 Community standards, created through collaborative grassroots efforts before

@@ -1,37 +1,23 @@
 ---
-title: "Anatomy of a file"
-date: 2026-09-02
-summary: |
-  What is a file? If
+title: "Is Zarr the new COG?"
+slug: "foss4g-2025-is-zarr-the-new-cog"
+date: 2025-11-19
+ptype: "talk"
+talks: ["is zarr the new cog"]
+event: "FOSS4G 2025"
+eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/VFK79A/"
+location: "Auckland, NZ"
 coauthors: ["Julia Signell"]
-presentations:
-  - location: "**FOSS4G** | Auckland, NZ"
-    date: 2025-11-19
-    links:
-      - name: slides (google)
-        href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
-      - name: talk submission
-        href: "https://talks.osgeo.org/foss4g-2025/talk/VFK79A/"
-  - location: "**FOSS4G NA** | Reston, VA, USA"
-    date: 2025-11-04
-    note: "co-presented with Julia Signell"
-    links:
-      - name: slides (google)
-        href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
+tags: ["zarr", "cog", "cloud-native", "data-formats"]
+links:
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
+summary: |
+  Zarr is gaining traction in geospatial workflows—but is it replacing COG,
+  complementing it, or something else entirely? We’ll unpack the formats’
+  shared foundations, explore their tradeoffs, and offer a path toward better
+  community guidance, tooling, and support.
 ---
-
-What is a file?
-
-* bytes
-* data and data encoding
-* compression
-* metadata
-* is a file just a file?
-
-What if this is an interactive exercise? Let's build a file format together?
-Say we have some simple data, we have some options how to chunk it, encode it?
-We then need to index it.
-Can we do this in python? Can we build up a dict or object based parser using struct?
 
 Cloud-Optimized GeoTIFF (COG) and Zarr have each earned their place in modern
 geospatial workflows. While often framed in opposition—raster vs. analysis,
