@@ -1,5 +1,5 @@
 ---
-title: "Exploring Cloud-Native Geospatial Formats: Hands-on with Raster Data"
+title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Raster Data"
 slug: "foss4g-na-2025-raster-formats-workshop"
 date: 2025-11-03
 ptype: "workshop"

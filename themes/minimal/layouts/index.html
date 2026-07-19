@@ -24,4 +24,28 @@
 <p class="view-all">
     <a href="{{ "posts/" | relURL }}">view all posts →</a>
 </p>
+
+{{ $pres := where .Site.RegularPages "Section" "presentations" }}
+{{ $upcoming := where $pres "Date" ">=" now }}
+{{ $recent := where (where $pres "Date" "<" now) "Date" ">=" (now.AddDate 0 0 -60) }}
+
+{{ with $upcoming }}
+<h2>upcoming presentations</h2>
+<ul class="posts">
+    {{ range first 5 (sort . "Date" "asc") }}{{ partial "presentation-entry.html" . }}{{ end }}
+</ul>
+{{ end }}
+
+{{ with $recent }}
+<h2>recent presentations</h2>
+<ul class="posts">
+    {{ range first 5 . }}{{ partial "presentation-entry.html" . }}{{ end }}
+</ul>
+{{ end }}
+
+{{ if or $upcoming $recent }}
+<p class="view-all">
+    <a href="{{ "presentations/" | relURL }}">view all presentations →</a>
+</p>
+{{ end }}
 {{ end }}

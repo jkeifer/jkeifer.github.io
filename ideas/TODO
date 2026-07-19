@@ -1,6 +1,9 @@
 * [ ] update about with explanation of the name
-* [ ] some sort of content on the home page?
-* [ ] cv page, link to from about
+* [x] some sort of content on the home page? (upcoming/recent presentations)
+* [ ] cv page, link to from about (presentations frontmatter can feed the talks section)
+* [ ] generate favicon.ico (fallback for old browsers) from static/favicon.svg
+* [ ] og:image: render a PNG of the logo (dot-in-the-void) and set as default
+      social image in head.html
 * [ ] draft post about the theme, using claude code to create it
 * [x] tags should be lowercase on tags page or anywhere else they appear
 * [x] tags should be listed on the post _somewhere_

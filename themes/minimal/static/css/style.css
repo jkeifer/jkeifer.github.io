@@ -186,8 +186,16 @@ header nav {
 }
 
 .nav-left .site-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.site-logo {
+    width: 1.1em;
+    height: 1.1em;
 }
 
 .nav-controls {

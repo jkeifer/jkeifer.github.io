@@ -32,6 +32,9 @@
         {{ with .Params.note }}
         <div class="post-meta note">{{ . | markdownify }}</div>
         {{ end }}
+        <div class="print-only">
+            <span class="permalink">{{ .Permalink }}</span>
+        </div>
     </header>
 
     {{ if gt .Date now }}
@@ -69,16 +72,20 @@
         {{ .Content }}
     </div>
 
+    {{ $ptype := .Params.ptype | default "talk" }}
     {{ range .GetTerms "talks" }}
     {{ $others := where .Pages "Permalink" "ne" $.Permalink }}
     {{ with $others }}
     <section class="other-deliveries">
-        <h2>other deliveries of this talk</h2>
+        <h2>other deliveries of this {{ $ptype }}</h2>
         <ul class="posts">
         {{ range sort . "Date" "desc" }}{{ partial "presentation-entry.html" . }}{{ end }}
         </ul>
     </section>
     {{ end }}
+    <p class="view-all">
+        <a href="{{ .Permalink }}">all deliveries →</a>
+    </p>
     {{ end }}
 
     {{ with .GetTerms "tags" }}
@@ -86,14 +93,5 @@
         {{ range . }}<a href="{{ .Permalink }}">{{ .LinkTitle | lower }}</a> {{ end }}
     </div>
     {{ end }}
-
-    <nav class="post-nav">
-        {{ with .PrevInSection }}
-        <a class="prev" href="{{ .Permalink }}">← {{ .Title | lower }}</a>
-        {{ end }}
-        {{ with .NextInSection }}
-        <a class="next" href="{{ .Permalink }}">{{ .Title | lower }} →</a>
-        {{ end }}
-    </nav>
 </article>
 {{ end }}

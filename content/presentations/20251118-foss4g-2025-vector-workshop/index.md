@@ -1,5 +1,5 @@
 ---
-title: "Exploring Cloud-Native Geospatial Formats: Hands-on with Vector Data Workshop"
+title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Vector Data"
 slug: "foss4g-2025-vector-formats-workshop"
 date: 2025-11-18
 ptype: "workshop"
