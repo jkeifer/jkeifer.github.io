@@ -2,5 +2,5 @@
 * [ ] some sort of content on the home page?
 * [ ] cv page, link to from about
 * [ ] draft post about the theme, using claude code to create it
-* [ ] tags should be lowercase on tags page or anywhere else they appear
-* [ ] tags should be listed on the post _somewhere_
+* [x] tags should be lowercase on tags page or anywhere else they appear
+* [x] tags should be listed on the post _somewhere_
