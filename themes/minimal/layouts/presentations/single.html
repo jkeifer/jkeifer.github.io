@@ -1,0 +1,87 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title | lower }}{{ end }}
+
+{{ define "main" }}
+<article>
+    <header>
+        <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
+        <div class="post-meta">
+            {{ if .Params.ptype }}
+            <span class="draft-badge">{{ .Params.ptype }}</span>
+            {{ end }}
+            {{ with .Params.coauthors }}
+            <span>co-authored with
+            {{ range $i, $author := . }}
+                {{- if $i }}, {{ end }}{{ $author | markdownify -}}
+            {{ end }}
+            </span>
+            {{ end }}
+        </div>
+    </header>
+
+    {{ with .Params.summary }}
+    <div class="post-meta-box">
+        <div class="summary-text">{{ . | markdownify }}</div>
+    </div>
+    {{ end }}
+
+    {{ if .Params.presentations }}
+    <section class="presentation-instances">
+        <h2>Presentation dates</h2>
+        <ul class="posts">
+        {{ range .Params.presentations }}
+        <li>
+            <div class="post-entry">
+                <span class="date">{{ .date }}</span>
+                <div class="post-info">
+                    {{ if .location }}
+                    <div class="post-location">
+                        {{ .location | markdownify }}
+                    </div>
+                    {{ end }}
+                    {{ if .note }}
+                    <div class="post-summary">
+                        {{ .note | markdownify }}
+                    </div>
+                    {{ end }}
+                    {{ if .links }}
+                    <ul class="post-links">
+                        {{ range .links }}
+                        <li class="post-link">
+                            <a href="{{ .href }}">{{ .name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </div>
+            </div>
+        </li>
+        {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+
+    {{ with .Params.links }}
+    <section class="presentation-links">
+        <h2>Resources</h2>
+        <ul>
+        {{ range . }}
+            <li><a href="{{ .href }}">{{ .name }}</a></li>
+        {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    <nav class="post-nav">
+        {{ with .PrevInSection }}
+        <a class="prev" href="{{ .Permalink }}">← {{ .Title | lower }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a class="next" href="{{ .Permalink }}">{{ .Title | lower }} →</a>
+        {{ end }}
+    </nav>
+</article>
+{{ end }}

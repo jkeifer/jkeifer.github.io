@@ -1,0 +1,41 @@
+{{ define "main" }}
+<h1>{{ .Title | lower }}</h1>
+
+{{ $presentations := slice }}
+{{ range where .Site.AllPages "Section" "presentations" }}
+  {{ if ne .Kind "section" }}
+    {{ $page := . }}
+    {{ if .Params.presentations }}
+      {{ range .Params.presentations }}
+        {{ $title := $page.Title }}
+        {{ if .title }}
+          {{ $title = .title }}
+        {{ end }}
+        {{ $presentations = $presentations | append (dict "page" $page "date" .date "title" $title "location" .location) }}
+      {{ end }}
+    {{ else }}
+      {{ $presentations = $presentations | append (dict "page" $page "date" $page.Date "title" $page.Title "location" "") }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $sorted := sort $presentations "date" "desc" }}
+
+<ul class="posts">
+    {{ range $sorted }}
+    <li>
+        <div class="post-entry">
+            <span class="date">{{ .date }}</span>
+            <div class="post-info">
+                <a href="{{ .page.Permalink }}">{{ .title }}</a>{{ if .page.Params.ptype }} <span class="draft-badge">{{ .page.Params.ptype }}</span>{{ end }}
+                {{ if .location }}
+                <div class="post-summary">
+                    {{ .location | markdownify }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

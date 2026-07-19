@@ -5,6 +5,7 @@ theme = "minimal"
 
 [permalinks]
   posts = "/posts/:year/:month/:day/:title/"
+  presentations = "/presentations/:title/"
 
 [pagination]
   pagerSize = 25
@@ -60,6 +61,11 @@ weight = 10
 name = "Posts"
 url = "/posts/"
 weight = 20
+
+[[menu.main]]
+name = "Presentations"
+url = "/presentations/"
+weight = 25
 
 [[menu.main]]
 name = "Tags"
