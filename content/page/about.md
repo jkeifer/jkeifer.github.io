@@ -18,5 +18,5 @@ bare metal than not. Except my desire to support remote sensing data processing 
 earth science applications leaves me stuck in the cloud much of the time.
 
 Back down on the ground, I enjoys traveling and getting outside to run, hike,
-climb, ski (classic nordic), or just stare at the sky and think about how crazy
+climb, XC ski, or just stare at the sky and think about how crazy
 it is that we’re in a little bubble floating through space.
