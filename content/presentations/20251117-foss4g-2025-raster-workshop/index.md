@@ -7,6 +7,7 @@ talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/KZGHTZ/"
 location: "Auckland, NZ"
+affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
   - name: "slides (gdoc)"

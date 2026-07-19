@@ -7,6 +7,7 @@ talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2024"
 eventUrl: "https://talks.osgeo.org/foss4g-2024-workshop/talk/TNYSY9/"
 location: "Belém, Brazil"
+affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
   - name: "slides (gdoc)"

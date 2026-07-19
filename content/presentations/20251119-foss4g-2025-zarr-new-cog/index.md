@@ -8,6 +8,7 @@ event: "FOSS4G 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/VFK79A/"
 location: "Auckland, NZ"
 coauthors: ["Julia Signell"]
+affiliation: "Element 84"
 tags: ["zarr", "cog", "cloud-native", "data-formats"]
 links:
   - name: "recording (youtube)"

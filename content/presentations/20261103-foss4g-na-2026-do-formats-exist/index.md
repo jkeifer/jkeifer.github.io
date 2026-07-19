@@ -8,6 +8,7 @@ ptype: "talk"
 talks: ["do formats exist"]
 event: "FOSS4G NA 2026"
 location: "Sacramento, CA, USA"
+affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "open-source", "wasm"]
 summary: |
   What if data formats didn't need their own libraries? The cylf ecosystem

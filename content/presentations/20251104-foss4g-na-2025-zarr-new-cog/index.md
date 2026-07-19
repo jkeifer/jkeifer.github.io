@@ -8,6 +8,7 @@ event: "FOSS4G NA 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-na-2025/talk/YTCPRS/"
 location: "Reston, VA, USA"
 coauthors: ["Julia Signell"]
+affiliation: "Element 84"
 note: "co-presented with Julia Signell"
 tags: ["zarr", "cog", "cloud-native", "data-formats"]
 links:

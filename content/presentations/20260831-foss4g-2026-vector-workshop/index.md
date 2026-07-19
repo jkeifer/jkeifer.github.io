@@ -8,6 +8,7 @@ ptype: "workshop"
 talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G 2026"
 location: "Hiroshima, Japan"
+affiliation: "Element 84"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:
   - name: "github repository"

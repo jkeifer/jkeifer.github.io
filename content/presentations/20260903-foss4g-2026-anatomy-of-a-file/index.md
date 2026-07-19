@@ -7,6 +7,7 @@ talks: ["anatomy of a file"]
 event: "FOSS4G 2026"
 eventUrl: "https://talks.osgeo.org/foss4g-2026/talk/CYWZVB/"
 location: "Hiroshima, Japan"
+affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector"]
 summary: |
   Raster, vector, point cloud: every geospatial format solves the same core

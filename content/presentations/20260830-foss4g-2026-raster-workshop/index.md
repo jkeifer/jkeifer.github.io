@@ -8,6 +8,7 @@ ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2026"
 location: "Hiroshima, Japan"
+affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
   - name: "github repository"

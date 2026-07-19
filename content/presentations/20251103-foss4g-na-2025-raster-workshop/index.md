@@ -7,6 +7,7 @@ talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G NA 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-na-2025/talk/MN7NCT/"
 location: "Reston, VA, USA"
+affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
   - name: "slides (gdoc)"

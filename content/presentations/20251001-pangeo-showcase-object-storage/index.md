@@ -6,6 +6,7 @@ ptype: "talk"
 event: "Pangeo Showcase"
 eventUrl: "https://discourse.pangeo.io/t/pangeo-showcase-lets-solve-the-problem-of-object-storage-october-1-2025-at-12-pm-et/5417"
 location: "virtual"
+affiliation: "Element 84"
 tags: ["ccrp", "cloud-native", "zarr", "cog", "data-formats"]
 links:
   - name: "recording (youtube)"

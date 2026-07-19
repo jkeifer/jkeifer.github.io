@@ -5,6 +5,7 @@ date: 2025-01-15
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "Oceania geospatial user group"
+affiliation: "Element 84"
 note: "virtual workshop"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:

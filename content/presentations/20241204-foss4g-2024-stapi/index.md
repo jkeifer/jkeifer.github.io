@@ -8,6 +8,7 @@ event: "FOSS4G 2024"
 eventUrl: "https://talks.osgeo.org/foss4g-2024/talk/GSAVCT/"
 location: "Belém, Brazil"
 coauthors: ["Matt Hanson"]
+affiliation: "Element 84"
 note: "co-presented with Matt Hanson"
 tags: ["stac", "stapi", "open-source"]
 links:

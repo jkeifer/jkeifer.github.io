@@ -7,6 +7,7 @@ talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G NA 2026"
 eventUrl: "https://talks.osgeo.org/foss4g-na-2026/talk/A838QC/"
 location: "Sacramento, CA, USA"
+affiliation: "Element 84"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:
   - name: "github repository"

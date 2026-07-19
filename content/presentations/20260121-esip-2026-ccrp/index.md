@@ -6,6 +6,7 @@ ptype: "talk"
 event: "2026 January ESIP Meeting"
 eventUrl: "https://2026januaryesipmeeting.sched.com/event/2CXOq/bridging-the-cloud-divide-part-1"
 location: "virtual"
+affiliation: "Element 84"
 note: >
   15-minute presentation in the "Bridging the Cloud Divide - Part 1" session
 tags: ["ccrp", "cloud-native", "zarr", "cog", "data-formats"]

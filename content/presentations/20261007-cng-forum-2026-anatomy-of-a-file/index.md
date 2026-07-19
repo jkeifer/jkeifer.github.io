@@ -9,6 +9,7 @@ talks: ["anatomy of a file"]
 event: "CNG Forum 2026"
 eventUrl: "https://2026.cloudnativegeo.org/"
 location: "Snowbird, UT, USA"
+affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector", "cng"]
 summary: |
   Raster, vector, point cloud: every geospatial format solves the same core
