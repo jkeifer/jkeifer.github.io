@@ -40,35 +40,40 @@
     {{ $today := time.AsTime (now.Format "2006-01-02") }}
     {{ $isUpcoming := ge .Date $today }}
     {{ $ptype := .Params.ptype | default "talk" }}
-    {{ if $isUpcoming }}
-    <div class="post-meta-box"><div class="note-text">this presentation is upcoming</div></div>
-    {{ end }}
-
+    {{ $page := . }}
+    {{ $upcomingSibs := slice }}
+    {{ $newer := slice }}
     {{ range .GetTerms "talks" }}
-    {{ $sibs := where .Pages "Permalink" "ne" $.Permalink }}
-    {{ $upcomingSibs := sort (where $sibs "Date" ">=" $today) "Date" "asc" }}
-    {{ if $upcomingSibs }}
-    <div class="post-meta-box">
-        <div class="note-text">
-        this {{ $ptype }} will {{ if $isUpcoming }}also{{ else }}next{{ end }} be presented at
-        {{- range $i, $p := $upcomingSibs }}{{ if $i }},{{ end }} <a href="{{ $p.Permalink }}">{{ $p.Params.event | default $p.Title | markdownify }}</a> ({{ $p.Date.Format "2006-01-02" }}){{ end }}
-        </div>
-    </div>
-    {{ else if not $isUpcoming }}
-    {{ range first 1 (sort (where $sibs "Date" "<" $today) "Date" "desc") }}
-    {{ if gt .Date $.Date }}
-    <div class="post-meta-box">
-        <div class="note-text">
-        a newer version of this {{ $ptype }} was presented at <a href="{{ .Permalink }}">{{ .Params.event | default .Title | markdownify }}</a> ({{ .Date.Format "2006-01-02" }})
-        </div>
-    </div>
-    {{ end }}
+    {{ $sibs := where .Pages "Permalink" "ne" $page.Permalink }}
+    {{ $up := where $sibs "Date" ">=" $today }}
+    {{ if $up }}{{ $upcomingSibs = sort $up "Date" "asc" }}{{ end }}
+    {{ $pastSibs := where $sibs "Date" "<" $today }}
+    {{ if and (not $isUpcoming) (not $up) $pastSibs }}
+    {{ range first 1 (sort $pastSibs "Date" "desc") }}
+    {{ if gt .Date $page.Date }}{{ $newer = slice . }}{{ end }}
     {{ end }}
     {{ end }}
     {{ end }}
 
-    {{ with .Params.summary }}
-    <div class="post-meta-box"><div class="summary-text">{{ . | markdownify }}</div></div>
+    {{ $hasStatus := or $isUpcoming $upcomingSibs $newer }}
+    {{ if or .Params.summary $hasStatus }}
+    <div class="post-meta-box">
+        {{ with .Params.summary }}
+        <div class="summary-text">{{ . | markdownify }}</div>
+        {{ end }}
+        {{ if $hasStatus }}
+        <div class="note-text">
+        {{- if $isUpcoming }}this presentation is upcoming
+        {{- with $upcomingSibs }}; it will also be presented at
+            {{- range $i, $p := . }}{{ if $i }},{{ end }} <a href="{{ $p.Permalink }}">{{ $p.Params.event | default $p.Title | markdownify }}</a> ({{ $p.Date.Format "2006-01-02" }}){{ end }}
+        {{- end }}
+        {{- else if $upcomingSibs }}this {{ $ptype }} will next be presented at
+            {{- range $i, $p := $upcomingSibs }}{{ if $i }},{{ end }} <a href="{{ $p.Permalink }}">{{ $p.Params.event | default $p.Title | markdownify }}</a> ({{ $p.Date.Format "2006-01-02" }}){{ end }}
+        {{- else }}{{ range $newer }}a newer version of this {{ $ptype }} was presented at <a href="{{ .Permalink }}">{{ .Params.event | default .Title | markdownify }}</a> ({{ .Date.Format "2006-01-02" }}){{ end }}
+        {{- end }}
+        </div>
+        {{ end }}
+    </div>
     {{ end }}
 
     {{ with .Params.links }}
