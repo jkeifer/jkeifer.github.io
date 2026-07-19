@@ -44,6 +44,9 @@ original external link alongside the archive.
       record): → `20140416-gia-2014-hydranttools/`
 - [ ] eBAGIS talk slides (GIS in Action 2019 — locate in personal archives):
       → `20190422-gia-2019-ebagis/`
+- [ ] Earth-Search STAC API talk slides (no gdoc link on file; the FOSS4G 2024
+      pretalx page XHJYEA has a "Slides (8.7 MB)" attachment — grab that):
+      → `20241205-foss4g-2024-earthsearch/`
 
 ## Recordings (links added to pages; archive local copies)
 
@@ -61,12 +64,16 @@ original external link alongside the archive.
 - Confirmed no recording exists: all workshop deliveries (FOSS4G 2024/2025/NA
   2025, CNG 2025 — workshops were not recorded), FOSS4G NA 2025 STAPI talk,
   GIS in Action 2023/2014.
+- No recording found (checked OSGeo PeerTube and the FOSS4G YouTube channel;
+  not linked from the pretalx page): FOSS4G 2024 Earth-Search talk
+  (`20241205-foss4g-2024-earthsearch/`) — recheck periodically in case it's
+  mirrored later.
 
 ## Conference pages (lower risk, but pretalx instances do go away)
 
 - [ ] snapshot the talks.osgeo.org pretalx pages (PDF print or single-file
       HTML): KZGHTZ, MN7NCT, TNYSY9, MHHJE7, VFK79A, YTCPRS, ASNWTC, G3MHUZ,
-      GSAVCT (2024/2025 events); CYWZVB, QEN3RF, A838QC (2026)
+      GSAVCT, XHJYEA (2024/2025 events); CYWZVB, QEN3RF, A838QC (2026)
 - [ ] snapshot the GIS in Action 2023 sched.com page:
       https://gisinaction2023.sched.com/event/1LSoB/planet-scale-raster-catalogs-with-stac-photogrammetry-and-imagery-advancements-room-206
 - [ ] snapshot the ESIP sched.com page:
