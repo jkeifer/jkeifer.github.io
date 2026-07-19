@@ -5,68 +5,62 @@
     <header>
         <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
         <div class="post-meta">
-            {{ if .Params.ptype }}
-            <span class="draft-badge">{{ .Params.ptype }}</span>
-            {{ end }}
-            {{ with .Params.coauthors }}
-            <span>co-authored with
+            <time>{{ .Date.Format "2006-01-02" }}</time>
+            {{ with .Params.ptype }}<span class="ptype-badge">{{ . }}</span>{{ end }}
+            {{ if .Draft }}<span class="draft-badge">draft</span>{{ end }}
+        </div>
+        {{ if or .Params.event .Params.location }}
+        <div class="post-meta venue">
+            {{ if and .Params.event .Params.eventUrl }}<a href="{{ .Params.eventUrl }}"><strong>{{ .Params.event | markdownify }}</strong></a>
+            {{- else }}{{ with .Params.event }}<strong>{{ . | markdownify }}</strong>{{ end }}{{ end -}}
+            {{ if and .Params.event .Params.location }} | {{ end -}}
+            {{ with .Params.location }}{{ . | markdownify }}{{ end }}
+        </div>
+        {{ end }}
+        {{ with .Params.coauthors }}
+        <div class="post-meta coauthors">
+            <span>with
             {{ range $i, $author := . }}
                 {{- if $i }}, {{ end }}{{ $author | markdownify -}}
             {{ end }}
             </span>
-            {{ end }}
         </div>
+        {{ end }}
+        {{ with .Params.representing }}
+        <div class="post-meta representing"><span>presented for {{ . | markdownify }}</span></div>
+        {{ end }}
+        {{ with .Params.note }}
+        <div class="post-meta note">{{ . | markdownify }}</div>
+        {{ end }}
     </header>
 
-    {{ with .Params.summary }}
-    <div class="post-meta-box">
-        <div class="summary-text">{{ . | markdownify }}</div>
-    </div>
+    {{ if gt .Date now }}
+    <div class="post-meta-box"><div class="note-text">this presentation is upcoming</div></div>
     {{ end }}
 
-    {{ if .Params.presentations }}
-    <section class="presentation-instances">
-        <h2>Presentation dates</h2>
-        <ul class="posts">
-        {{ range .Params.presentations }}
-        <li>
-            <div class="post-entry">
-                <span class="date">{{ .date }}</span>
-                <div class="post-info">
-                    {{ if .location }}
-                    <div class="post-location">
-                        {{ .location | markdownify }}
-                    </div>
-                    {{ end }}
-                    {{ if .note }}
-                    <div class="post-summary">
-                        {{ .note | markdownify }}
-                    </div>
-                    {{ end }}
-                    {{ if .links }}
-                    <ul class="post-links">
-                        {{ range .links }}
-                        <li class="post-link">
-                            <a href="{{ .href }}">{{ .name }}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                    {{ end }}
-                </div>
-            </div>
-        </li>
-        {{ end }}
-        </ul>
-    </section>
+    {{ range .GetTerms "talks" }}
+    {{ $siblings := sort .Pages "Date" "desc" }}
+    {{ $latest := index $siblings 0 }}
+    {{ if and $latest (ne $latest.Permalink $.Permalink) (gt $latest.Date $.Date) }}
+    <div class="post-meta-box">
+        <div class="note-text">
+        {{ if gt $latest.Date now }}this talk will next be presented at
+        {{- else }}a newer version of this talk was presented at
+        {{- end }} <a href="{{ $latest.Permalink }}">{{ $latest.Params.event | default $latest.Title | markdownify }}</a> ({{ $latest.Date.Format "2006-01-02" }})
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+
+    {{ with .Params.summary }}
+    <div class="post-meta-box"><div class="summary-text">{{ . | markdownify }}</div></div>
     {{ end }}
 
     {{ with .Params.links }}
     <section class="presentation-links">
-        <h2>Resources</h2>
+        <h2>resources</h2>
         <ul>
-        {{ range . }}
-            <li><a href="{{ .href }}">{{ .name }}</a></li>
-        {{ end }}
+        {{ range . }}<li><a href="{{ .href }}">{{ .name }}</a></li>{{ end }}
         </ul>
     </section>
     {{ end }}
@@ -74,6 +68,24 @@
     <div class="content">
         {{ .Content }}
     </div>
+
+    {{ range .GetTerms "talks" }}
+    {{ $others := where .Pages "Permalink" "ne" $.Permalink }}
+    {{ with $others }}
+    <section class="other-deliveries">
+        <h2>other deliveries of this talk</h2>
+        <ul class="posts">
+        {{ range sort . "Date" "desc" }}{{ partial "presentation-entry.html" . }}{{ end }}
+        </ul>
+    </section>
+    {{ end }}
+    {{ end }}
+
+    {{ with .GetTerms "tags" }}
+    <div class="post-tags">tagged:
+        {{ range . }}<a href="{{ .Permalink }}">{{ .LinkTitle | lower }}</a> {{ end }}
+    </div>
+    {{ end }}
 
     <nav class="post-nav">
         {{ with .PrevInSection }}

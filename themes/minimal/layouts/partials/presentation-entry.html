@@ -1,0 +1,17 @@
+<li>
+    <div class="post-entry">
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        <div class="post-info">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{- with .Params.ptype }} <span class="ptype-badge">{{ . }}</span>{{ end }}
+            {{- if .Draft }} <span class="draft-badge">draft</span>{{ end }}
+            {{ if or .Params.event .Params.location }}
+            <div class="post-venue">
+                {{ with .Params.event }}<strong>{{ . | markdownify }}</strong>{{ end -}}
+                {{ if and .Params.event .Params.location }} | {{ end -}}
+                {{ with .Params.location }}{{ . | markdownify }}{{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</li>

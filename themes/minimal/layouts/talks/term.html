@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1>{{ .Title | lower }}</h1>
+{{ with .Content }}{{ . }}{{ end }}
+<ul class="posts">
+    {{ range $i, $p := sort .Pages "Date" "desc" }}
+    <li>
+        <div class="post-entry">
+            <span class="date">{{ $p.Date.Format "2006-01-02" }}</span>
+            <div class="post-info">
+                <a href="{{ $p.Permalink }}">{{ $p.Title }}</a>
+                {{- if eq $i 0 }} <span class="latest-badge">latest</span>{{ end }}
+                {{ if or $p.Params.event $p.Params.location }}
+                <div class="post-venue">
+                    {{ with $p.Params.event }}<strong>{{ . | markdownify }}</strong>{{ end -}}
+                    {{ if and $p.Params.event $p.Params.location }} | {{ end -}}
+                    {{ with $p.Params.location }}{{ . | markdownify }}{{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

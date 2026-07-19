@@ -76,6 +76,12 @@
     {{ end }}
     {{ end }}
 
+    {{ with .GetTerms "tags" }}
+    <div class="post-tags">tagged:
+        {{ range . }}<a href="{{ .Permalink }}">{{ .LinkTitle | lower }}</a> {{ end }}
+    </div>
+    {{ end }}
+
     <nav class="post-nav">
         {{ with .PrevInSection }}
         <a class="prev" href="{{ .Permalink }}">← {{ .Title | lower }}</a>
