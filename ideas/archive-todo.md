@@ -42,6 +42,8 @@ original external link alongside the archive.
       → `20140417-gia-2014-modis-crop-classification/`
 - [ ] HydrantTools poster PDF (locate in personal archives; not in conference
       record): → `20140416-gia-2014-hydranttools/`
+- [ ] eBAGIS talk slides (GIS in Action 2019 — locate in personal archives):
+      → `20190422-gia-2019-ebagis/`
 
 ## Recordings (links added to pages; archive local copies)
 
@@ -69,6 +71,8 @@ original external link alongside the archive.
       https://gisinaction2023.sched.com/event/1LSoB/planet-scale-raster-catalogs-with-stac-photogrammetry-and-imagery-advancements-room-206
 - [ ] snapshot the ESIP sched.com page:
       https://2026januaryesipmeeting.sched.com/event/2CXOq/bridging-the-cloud-divide-part-1
+- [ ] snapshot the GIS in Action 2019 sched.com page:
+      https://gisinaction2019.sched.com/event/KTIH/deployment
 
 ## Open metadata gaps
 
