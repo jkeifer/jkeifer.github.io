@@ -1055,3 +1055,107 @@ ul.posts .post-summary {
         widows: 3;
     }
 }
+
+/* Presentation type badge (chip like draft badge, neutral colors) */
+.ptype-badge {
+    display: inline-block;
+    padding: 0 0.3rem;
+    margin-left: 0.5rem;
+    background-color: var(--code-bg);
+    color: var(--footer-text);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+    vertical-align: 0.1rem;
+}
+
+article header .ptype-badge {
+    margin-left: 0.75rem;
+    vertical-align: 0.15rem;
+}
+
+/* Latest-delivery badge on talk pages */
+.latest-badge {
+    display: inline-block;
+    padding: 0 0.3rem;
+    margin-left: 0.5rem;
+    background-color: var(--tip-bg);
+    color: var(--tip-border);
+    border: 1px solid var(--tip-border);
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+    vertical-align: 0.1rem;
+}
+
+/* Venue line (event | location) in list rows */
+ul.posts .post-venue {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+}
+
+/* Venue and extra meta lines in article header */
+article header .post-meta.venue {
+    margin-top: 0.25rem;
+}
+
+article header .post-meta.representing,
+article header .post-meta.note {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Presentation resources */
+.presentation-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.presentation-links li {
+    margin-bottom: 0.25rem;
+}
+
+/* Other deliveries of the same talk */
+.other-deliveries {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Tags line at the end of posts and presentations */
+.post-tags {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+}
+
+.post-tags a {
+    margin-right: 0.5rem;
+}
+
+/* Terms pages (tags, talks) */
+ul.terms {
+    list-style: none;
+    padding: 0;
+}
+
+ul.terms li {
+    display: inline-block;
+    margin: 0 1.25rem 0.5rem 0;
+}
+
+ul.terms .term-count {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--footer-text);
+    vertical-align: super;
+}
