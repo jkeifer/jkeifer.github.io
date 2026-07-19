@@ -34,6 +34,34 @@ Builds to `public/` directory.
 - `hugo` - Build site
 - `git push origin src` - Deploy (triggers GitHub Actions)
 
+## Presentations
+
+Each talk *delivery* is its own page bundle under `content/presentations/`,
+named `YYYYMMDD-event-talk/`:
+
+```sh
+hugo new presentations/20261102-foss4g-na-2026-vector-workshop/index.md
+```
+
+Key frontmatter:
+
+- `slug` — event-qualified URL slug (`foss4g-na-2026-vector-formats-workshop`);
+  required because repeat deliveries share a title
+- `date` — the delivery date; future dates are built (`buildFuture`) and shown
+  in the "upcoming" section of `/presentations/`
+- `talks` — grouping term shared by all deliveries of the same talk; creates a
+  `/talks/<term>/` page listing every delivery with the latest highlighted.
+  Omit for one-off talks; add to every delivery once a talk repeats.
+- `event`/`eventUrl`/`location` — plain values, the templates own formatting
+- `ptype` — talk | workshop | poster | keynote (badge in lists)
+- `links` — slides, repos, recordings; archive slides as PDFs *into the
+  bundle* and link them with a bundle-relative href
+- `note` — free-form escape hatch (markdown ok) for anything structured
+  fields can't say
+
+The page body is the abstract as delivered. The home RSS feed only includes
+posts; presentations have their own feed at `/presentations/index.xml`.
+
 ## Images
 
 ### Option 1: Page Bundle (Recommended)
