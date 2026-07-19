@@ -25,12 +25,13 @@
     <a href="{{ "posts/" | relURL }}">view all posts →</a>
 </p>
 
+{{ $today := time.AsTime (now.Format "2006-01-02") }}
 {{ $pres := where .Site.RegularPages "Section" "presentations" }}
-{{ $upcoming := first 5 (sort (where $pres "Date" ">=" now) "Date" "asc") }}
+{{ $upcoming := first 5 (sort (where $pres "Date" ">=" $today) "Date" "asc") }}
 {{ $pad := sub 5 (len $upcoming) }}
 {{ $recent := slice }}
 {{ if gt $pad 0 }}
-{{ $recent = first $pad (where $pres "Date" "<" now) }}
+{{ $recent = first $pad (where $pres "Date" "<" $today) }}
 {{ end }}
 
 {{ if or $upcoming $recent }}

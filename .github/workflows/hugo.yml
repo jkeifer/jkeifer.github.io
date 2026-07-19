@@ -5,6 +5,12 @@ on:
   push:
     branches: ["src"]
 
+  # Daily rebuild so date-based rendering (upcoming vs past presentations)
+  # stays current; 00:30 UTC, just after the date rolls over for the
+  # midnight-UTC dates used in frontmatter
+  schedule:
+    - cron: "30 0 * * *"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 

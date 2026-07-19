@@ -37,7 +37,8 @@
         </div>
     </header>
 
-    {{ if gt .Date now }}
+    {{ $today := time.AsTime (now.Format "2006-01-02") }}
+    {{ if ge .Date $today }}
     <div class="post-meta-box"><div class="note-text">this presentation is upcoming</div></div>
     {{ end }}
 
@@ -47,7 +48,7 @@
     {{ if and $latest (ne $latest.Permalink $.Permalink) (gt $latest.Date $.Date) }}
     <div class="post-meta-box">
         <div class="note-text">
-        {{ if gt $latest.Date now }}this talk will next be presented at
+        {{ if ge $latest.Date $today }}this talk will next be presented at
         {{- else }}a newer version of this talk was presented at
         {{- end }} <a href="{{ $latest.Permalink }}">{{ $latest.Params.event | default $latest.Title | markdownify }}</a> ({{ $latest.Date.Format "2006-01-02" }})
         </div>
