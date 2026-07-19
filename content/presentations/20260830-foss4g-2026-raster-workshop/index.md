@@ -1,16 +1,15 @@
 ---
-title: "Exploring Cloud-Native Geospatial Formats: Hands-on with Raster Data Workshop"
-slug: "foss4g-2025-raster-formats-workshop"
-date: 2025-11-17
+title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Raster Data"
+slug: "foss4g-2026-raster-formats-workshop"
+date: 2026-08-30
+# TODO: FOSS4G 2026 workshop days are 2026-08-30/31; set exact date and add
+# eventUrl once the workshop schedule is published
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
-event: "FOSS4G 2025"
-eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/KZGHTZ/"
-location: "Auckland, NZ"
+event: "FOSS4G 2026"
+location: "Hiroshima, Japan"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
-  - name: "slides (gdoc)"
-    href: "https://docs.google.com/presentation/d/1oJ48g9Oc-60MlG2_wFTlAHo42SMYFGeiRG66Pc6cr48"
   - name: "github repository"
     href: "https://github.com/cng-raster-formats"
 ---

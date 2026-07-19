@@ -1,13 +1,15 @@
 ---
 title: "Anatomy of a file"
-slug: "foss4g-2026-anatomy-of-a-file"
-date: 2026-09-03
+slug: "cng-forum-2026-anatomy-of-a-file"
+date: 2026-10-07
+# TODO: conference runs 2026-10-06/09; set exact session date once the CNG
+# Forum 2026 agenda is published
 ptype: "talk"
 talks: ["anatomy of a file"]
-event: "FOSS4G 2026"
-eventUrl: "https://talks.osgeo.org/foss4g-2026/talk/CYWZVB/"
-location: "Hiroshima, Japan"
-tags: ["data-formats", "cloud-native", "raster", "vector"]
+event: "CNG Forum 2026"
+eventUrl: "https://2026.cloudnativegeo.org/"
+location: "Snowbird, UT, USA"
+tags: ["data-formats", "cloud-native", "raster", "vector", "cng"]
 summary: |
   Raster, vector, point cloud: every geospatial format solves the same core
   problems, including linearization, chunking, compression, and metadata. Let's

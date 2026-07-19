@@ -1,14 +1,15 @@
 ---
-title: "CNG for EO and Deep Dive into Cloud-Native Geospatial Raster Formats"
+title: "Deep Dive into Cloud-Native Geospatial Raster Formats"
 slug: "cng-2025-raster-formats-workshop"
 date: 2025-05-01
-# TODO: confirm exact workshop date at CNG Conference 2025
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "CNG Conference 2025"
-eventUrl: "https://conference.cloudnativegeo.org/CNGConference2025#/workshops"
+eventUrl: "https://web.archive.org/web/20250331202020/https://2025-ut.cloudnativegeo.org/agenda"
 location: "Snowbird, UT, USA"
-note: "co-presented with Alex Leith as part of a broader workshop on cloud-native geo"
+note: >
+  delivered as parts 2–3 of the "On-ramp to CNG" workshop series, following
+  Alex Leith's introduction to cloud-native geospatial for Earth observation
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats", "cng"]
 links:
   - name: "slides (gdoc)"
@@ -17,7 +18,44 @@ links:
     href: "https://github.com/cng-raster-formats"
 ---
 
-A delivery of the cloud-native raster formats workshop material as the second
-half of a combined session: an introduction to cloud-native geospatial for
-Earth observation, followed by a deep dive into how cloud-native raster
-formats—COG and Zarr—actually store data and what tools do to access it.
+Ever wonder what GDAL is doing under the hood when you read a GeoTIFF file?
+Doubly so when the file is a Cloud-optimized GeoTIFF (COG) on a remote server
+somewhere? Have you been wondering what this new GeoZarr thing is all about and
+how it actually works? Then there's the whole Kerchunk/VirtualiZarr indexing to
+get cloud-native access for non-cloud-native data formats, what's that about?
+
+Cloud-native geospatial is all the rage these days, and for good reason. As
+file sizes grow, layer counts increase, and analytical methods become more
+complex, the traditional download-to-the-desktop approach is quickly becoming
+untenable for many applications. It's no surprise then that users are turning
+to cloud-based tools such as Dask to scale out their analyses, or that
+traditional tooling is adopting new ways of finding and accessing data from
+cloud-based sources. But as we transition away from opening whole files to now
+grabbing ranges of bytes off remote servers it seems all the more important to
+understand exactly how cloud native data formats actually store data and what
+tools are doing to access it.
+
+This workshop aims to dig into how cloud-native geospatial data formats are
+enabling new operational paradigms, with a particular focus on raster data
+formats. We'll start on the surface by surveying the current cloud-native
+geospatial landscape to gain an understanding of why cloud native is important
+and how it is being used, including:
+
+* the core tenets of cloud-native geospatial formats
+* cloud-native data formats for both raster and non-raster geospatial data
+* SpatioTemporal Asset Catalogs (STAC) and how STAC is used for raster data
+  discovery and access
+* high-level tooling like odc-stac that can leverage STAC and Dask to scale
+  processing of cloud-native data
+
+Then we'll get hands-on and go deep to build up an in-depth understanding of
+how cloud native raster formats work. We'll examine the COG format and read a
+COG from a cloud source by hand using just Python, selectively extracting data
+from the image without any geospatial dependencies. We'll repeat the same
+exercise for geospatial data in Zarr format to see how that compares to our
+experience with COGs. Lastly we'll turn our attention to Kerchunk/VirtualiZarr
+to see how these technologies might allow us to optimize data access for
+non-cloud-native formats.
+
+This workshop will be presented via a combination of lecture and hands-on code
+notebooks.

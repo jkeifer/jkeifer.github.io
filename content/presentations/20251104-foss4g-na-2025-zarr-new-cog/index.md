@@ -5,11 +5,16 @@ date: 2025-11-04
 ptype: "talk"
 talks: ["is zarr the new cog"]
 event: "FOSS4G NA 2025"
+eventUrl: "https://talks.osgeo.org/foss4g-na-2025/talk/YTCPRS/"
 location: "Reston, VA, USA"
 coauthors: ["Julia Signell"]
 note: "co-presented with Julia Signell"
 tags: ["zarr", "cog", "cloud-native", "data-formats"]
 links:
+  - name: "recording (youtube)"
+    href: "https://www.youtube.com/watch?v=Tm-mS39f8Kg"
+  - name: "recording (osgeo peertube)"
+    href: "https://video.osgeo.org/videos/watch/949935b2-1a53-4eee-9901-2db69e05cb33"
   - name: "slides (gdoc)"
     href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
 summary: |

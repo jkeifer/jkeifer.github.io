@@ -1,14 +1,13 @@
 ---
-title: "Exploring Cloud-Native Geospatial Formats: Hands-on with Vector Data Workshop"
-slug: "foss4g-2025-vector-formats-workshop"
-date: 2025-11-18
+title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Vector Data"
+slug: "foss4g-2026-vector-formats-workshop"
+date: 2026-08-31
+# TODO: FOSS4G 2026 workshop days are 2026-08-30/31; set exact date and add
+# eventUrl once the workshop schedule is published
 ptype: "workshop"
 talks: ["cloud-native vector formats workshop"]
-event: "FOSS4G 2025"
-eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/MHHJE7/"
-location: "Auckland, NZ"
-representing: "Element 84"
-note: "first presentation, a bit experimental"
+event: "FOSS4G 2026"
+location: "Hiroshima, Japan"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:
   - name: "github repository"

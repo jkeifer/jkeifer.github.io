@@ -2,15 +2,16 @@
 
 Goal: every externally-hosted asset gets archived into its delivery's page
 bundle (`content/presentations/<delivery>/`), typically as an exported PDF for
-slides, with the bundle-relative file added to the page's `links` (e.g.
-`- name: "slides (pdf)"` / `href: "slides.pdf"`). Keep the original external
-link alongside the archive.
+slides or a downloaded video, with the bundle-relative file added to the page's
+`links` (e.g. `- name: "slides (pdf)"` / `href: "slides.pdf"`). Keep the
+original external link alongside the archive.
 
 ## Slides (Google Docs — highest link-rot risk)
 
-- [ ] raster workshop deck (used for FOSS4G 2024 Belém):
+- [ ] raster workshop deck (FOSS4G 2024 Belém):
       https://docs.google.com/presentation/d/1qFckA0prY604I4dMkQlF1ZM-QSKS2ou4-YttgGQHzOU/
-      → `20241202-foss4g-2024-raster-workshop/`
+      → `20241203-foss4g-2024-raster-workshop/`
+      (the TNYSY9 pretalx page also has a "Slides (7.9 MB)" attachment — grab that too)
 - [ ] raster workshop deck (Oceania virtual, 2025-01-15):
       https://docs.google.com/presentation/d/1k5m2eYV8Tv4YrTAL6pfjmZMhls51cChW_QO1vcXH_0U/
       → `20250115-oceania-2025-raster-workshop/`
@@ -23,45 +24,58 @@ link alongside the archive.
 - [ ] "Is Zarr the new COG?" deck (FOSS4G NA 2025 + FOSS4G 2025 shared):
       https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY
       → `20251104-foss4g-na-2025-zarr-new-cog/`, `20251119-foss4g-2025-zarr-new-cog/`
-- [ ] State of STAPI decks (no slide links on file at all — locate and archive):
+- [ ] State of STAPI decks (no gdoc links on file; the FOSS4G NA 2025 pretalx page
+      G3MHUZ has a slides link, and the FOSS4G 2024 GSAVCT page has a
+      "Slides (5.6 MB)" attachment):
       → `20251120-foss4g-2025-stapi/`, `20251104-foss4g-na-2025-stapi/`,
         `20241204-foss4g-2024-stapi/`
 - [ ] vector workshop materials (no deck link on file; repo only):
       → `20251118-foss4g-2025-vector-workshop/`
-- [ ] planet-scale raster catalogs slides (GIS in Action 2023 — locate):
-      → `20230418-gia-2023-planet-scale-raster-catalogs/`
-- [ ] 2014 GIS in Action materials (MODIS talk slides, HydrantTools poster PDF —
-      locate in personal archives if they still exist):
-      → `20140401-gia-2014-modis-crop-classification/`, `20140401-gia-2014-hydranttools/`
+- [ ] Pangeo Showcase deck ("Let's solve the problem of object storage"):
+      → `20251001-pangeo-showcase-object-storage/`
+- [ ] ESIP CCRP deck: → `20260121-esip-2026-ccrp/`
+- [ ] planet-scale raster catalogs slides (GIS in Action 2023 — locate in
+      personal archives): → `20230418-gia-2023-planet-scale-raster-catalogs/`
+- [ ] MODIS talk slides (posted to gisinaction.org as `keifer_gisInAction2.pptx`;
+      linked from the archived program page:
+      https://web.archive.org/web/20141029194344/http://gisinaction.org/content/program):
+      → `20140417-gia-2014-modis-crop-classification/`
+- [ ] HydrantTools poster PDF (locate in personal archives; not in conference
+      record): → `20140416-gia-2014-hydranttools/`
 
-## Recordings
+## Recordings (links added to pages; archive local copies)
 
-- [ ] "Is Zarr the new COG?" FOSS4G NA 2025 — a recording reportedly exists on
-      YouTube; find, verify, and add link → `20251104-foss4g-na-2025-zarr-new-cog/`
-- [ ] FOSS4G 2025 Auckland talks (Zarr talk 11-19, STAPI talk 11-20) —
-      presentations were recorded and posted to the OSGeo Oceania YouTube
-      channel (workshops were NOT recorded); find and add links
-- [ ] FOSS4G NA 2025 STAPI talk — check for recording
-- [ ] FOSS4G 2024 Belém STAPI talk — check for recording
+- [x] find recordings — done; these exist and are linked:
+  - FOSS4G 2025 Zarr talk: https://www.youtube.com/watch?v=qF6ZFomRZb4
+  - FOSS4G NA 2025 Zarr talk: https://www.youtube.com/watch?v=Tm-mS39f8Kg
+    (mirror: https://video.osgeo.org/videos/watch/949935b2-1a53-4eee-9901-2db69e05cb33)
+  - FOSS4G 2025 STAPI talk: https://www.youtube.com/watch?v=C18FRsOpQPk
+  - FOSS4G 2024 tasking talk: https://video.osgeo.org/videos/watch/c3241f2b-62bb-4894-bb36-9f84b0510f2c
+  - Pangeo Showcase object storage talk: https://www.youtube.com/watch?v=66n-wScNBbI
+- [ ] download/archive local copies of the five recordings above
+- [ ] ESIP 2026 CCRP talk: session recordings are on the ESIP YouTube channel —
+      find the "Bridging the Cloud Divide - Part 1" recording and add the link
+      → `20260121-esip-2026-ccrp/`
+- Confirmed no recording exists: all workshop deliveries (FOSS4G 2024/2025/NA
+  2025, CNG 2025 — workshops were not recorded), FOSS4G NA 2025 STAPI talk,
+  GIS in Action 2023/2014.
 
 ## Conference pages (lower risk, but pretalx instances do go away)
 
-- [ ] Consider snapshotting the talks.osgeo.org pretalx pages (PDF print or
-      single-file HTML) for: KZGHTZ, MN7NCT, TNYSY9, MHHJE7, VFK79A, ASNWTC
-      (2025/2024 events), CYWZVB, QEN3RF, A838QC (2026)
-- [ ] GIS in Action 2023 sched.com page (already indexed; snapshot recommended):
+- [ ] snapshot the talks.osgeo.org pretalx pages (PDF print or single-file
+      HTML): KZGHTZ, MN7NCT, TNYSY9, MHHJE7, VFK79A, YTCPRS, ASNWTC, G3MHUZ,
+      GSAVCT (2024/2025 events); CYWZVB, QEN3RF, A838QC (2026)
+- [ ] snapshot the GIS in Action 2023 sched.com page:
       https://gisinaction2023.sched.com/event/1LSoB/planet-scale-raster-catalogs-with-stac-photogrammetry-and-imagery-advancements-room-206
+- [ ] snapshot the ESIP sched.com page:
+      https://2026januaryesipmeeting.sched.com/event/2CXOq/bridging-the-cloud-divide-part-1
 
 ## Open metadata gaps
 
-- [ ] exact date of CNG Conference 2025 workshop (currently 2025-05-01 placeholder)
-- [ ] exact date of FOSS4G 2024 Belém workshop (currently 2024-12-02) and STAPI
-      talk (currently 2024-12-04)
-- [ ] exact dates for GIS in Action 2014 (currently 2014-04-01 placeholders)
-- [ ] FOSS4G NA 2025 talk pages for the Zarr and STAPI talks (eventUrl missing)
-- [ ] FOSS4G 2024 Belém STAPI talk page + original abstract (body currently a
-      placeholder summary)
-- [ ] CNG Forum 2026 (Oct 6–9, Snowbird UT): Jarrett + Julia Signell confirmed
-      as speakers, but session titles not yet published — add delivery page(s)
-      once the agenda is public: https://2026.cloudnativegeo.org/
-- [ ] second conference for "Anatomy of a file" (only FOSS4G 2026 confirmed)
+- [ ] CNG Forum 2026 (Oct 6–9, Snowbird): exact "Anatomy of a file" session
+      date + agenda URL once published → `20261007-cng-forum-2026-anatomy-of-a-file/`
+- [ ] FOSS4G 2026 workshop schedule (Aug 30–31): exact dates + pretalx pages for
+      the raster and vector workshops → `20260830-…/`, `20260831-…/`
+- [ ] FOSS4G NA 2026 "Do formats exist?" talk: exact date + pretalx page once
+      the schedule publishes (week of Aug 1, 2026) → `20261103-foss4g-na-2026-do-formats-exist/`
+- [ ] GIS in Action 2014 poster session date (conference ran Apr 16–17)

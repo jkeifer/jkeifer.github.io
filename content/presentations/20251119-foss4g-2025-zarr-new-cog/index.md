@@ -10,6 +10,8 @@ location: "Auckland, NZ"
 coauthors: ["Julia Signell"]
 tags: ["zarr", "cog", "cloud-native", "data-formats"]
 links:
+  - name: "recording (youtube)"
+    href: "https://www.youtube.com/watch?v=qF6ZFomRZb4"
   - name: "slides (gdoc)"
     href: "https://docs.google.com/presentation/d/1puWMKDCvJTdXKyOcioRXeWHxWlwBmfsE8XRQqmzEUPY"
 summary: |

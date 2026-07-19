@@ -1,12 +1,13 @@
 ---
 title: "Do formats exist? Towards a unified foundation for data tooling"
-slug: "foss4g-2026-do-formats-exist"
-date: 2026-09-03
+slug: "foss4g-na-2026-do-formats-exist"
+date: 2026-11-03
+# TODO: FOSS4G NA 2026 runs 2026-11-02/04; set exact date and add eventUrl
+# once the talk schedule is published
 ptype: "talk"
 talks: ["do formats exist"]
-event: "FOSS4G 2026"
-eventUrl: "https://talks.osgeo.org/foss4g-2026/talk/QEN3RF/"
-location: "Hiroshima, Japan"
+event: "FOSS4G NA 2026"
+location: "Sacramento, CA, USA"
 tags: ["data-formats", "cloud-native", "open-source", "wasm"]
 summary: |
   What if data formats didn't need their own libraries? The cylf ecosystem

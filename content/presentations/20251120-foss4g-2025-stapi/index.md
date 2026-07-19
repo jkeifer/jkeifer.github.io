@@ -11,6 +11,9 @@ coauthors: ["Matt Hanson"]
 representing: "Element 84"
 note: "co-presented with Matt Hanson"
 tags: ["stac", "stapi", "open-source"]
+links:
+  - name: "recording (youtube)"
+    href: "https://www.youtube.com/watch?v=C18FRsOpQPk"
 summary: |
   Explore STAPI, a specification for a Sensor Tasking API. We’ll highlight
   recent developments, showcase the open-source projects being developed in the
