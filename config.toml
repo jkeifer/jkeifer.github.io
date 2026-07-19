@@ -2,10 +2,16 @@ baseURL = "https://teotl.dev/"
 languageCode = "en-us"
 title = "Lost in Tab"
 theme = "minimal"
+buildFuture = true
+capitalizeListTitles = false
 
 [permalinks]
   posts = "/posts/:year/:month/:day/:title/"
-  presentations = "/presentations/:title/"
+  presentations = "/presentations/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  talk = "talks"
 
 [pagination]
   pagerSize = 25
