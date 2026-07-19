@@ -8,10 +8,9 @@ event: "CNG Conference 2025"
 eventUrl: "https://web.archive.org/web/20250331202020/https://2025-ut.cloudnativegeo.org/agenda"
 location: "Snowbird, UT, USA"
 coauthors: ["Alex Leith"]
-affiliation: "Element 84"
 note: >
-  a day-long, three-part workshop: part 1 presented by Alex Leith, parts 2–3
-  presented by Jarrett Keifer
+  a day-long, three-part workshop: part 1 presented by Alex Leith (Auspatious),
+  parts 2–3 presented by Jarrett Keifer (Element 84)
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats", "cng"]
 links:
   - name: "slides (gdoc)"
