@@ -8,7 +8,7 @@ event: ""
 eventUrl: ""
 location: ""
 coauthors: []
-representing: ""
+affiliation: ""
 note: ""
 tags: []
 links: []           # - name: "slides (pdf)"

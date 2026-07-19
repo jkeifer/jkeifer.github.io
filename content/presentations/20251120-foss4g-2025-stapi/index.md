@@ -8,7 +8,7 @@ event: "FOSS4G 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/ASNWTC/"
 location: "Auckland, NZ"
 coauthors: ["Matt Hanson"]
-representing: "Element 84"
+affiliation: "Element 84"
 note: "co-presented with Matt Hanson"
 tags: ["stac", "stapi", "open-source"]
 links:

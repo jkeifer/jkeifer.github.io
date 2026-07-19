@@ -7,7 +7,7 @@ event: "GIS in Action 2019"
 eventUrl: "https://gisinaction2019.sched.com/event/KTIH/deployment"
 location: "Portland, OR, USA"
 coauthors: ["Lesley Bross", "Geoffrey Duh"]
-representing: "Portland State University"
+affiliation: "Portland State University"
 note: >
   presented in the "Deployment" session; at the time a Senior Programmer in
   the PSU Geography Department

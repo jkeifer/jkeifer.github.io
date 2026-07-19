@@ -6,7 +6,7 @@ ptype: "talk"
 event: "GIS in Action 2023"
 eventUrl: "https://gisinaction2023.sched.com/event/1LSoB/planet-scale-raster-catalogs-with-stac-photogrammetry-and-imagery-advancements-room-206"
 location: "Portland, OR, USA"
-representing: "Element 84"
+affiliation: "Element 84"
 tags: ["stac", "raster", "cloud-native", "aws"]
 ---
 

@@ -26,8 +26,8 @@
             </span>
         </div>
         {{ end }}
-        {{ with .Params.representing }}
-        <div class="post-meta representing"><span>presented for {{ . | markdownify }}</span></div>
+        {{ with .Params.affiliation }}
+        <div class="post-meta affiliation"><span>affiliation: {{ . | markdownify }}</span></div>
         {{ end }}
         {{ with .Params.note }}
         <div class="post-meta note">{{ . | markdownify }}</div>

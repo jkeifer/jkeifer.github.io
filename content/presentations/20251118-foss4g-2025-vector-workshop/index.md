@@ -7,7 +7,7 @@ talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-2025/talk/MHHJE7/"
 location: "Auckland, NZ"
-representing: "Element 84"
+affiliation: "Element 84"
 note: "first presentation, a bit experimental"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:

@@ -8,7 +8,7 @@ event: "FOSS4G NA 2025"
 eventUrl: "https://talks.osgeo.org/foss4g-na-2025/talk/G3MHUZ/"
 location: "Reston, VA, USA"
 coauthors: ["Matt Hanson"]
-representing: "Element 84"
+affiliation: "Element 84"
 note: "co-presented with Matt Hanson"
 tags: ["stac", "stapi", "open-source"]
 summary: |
