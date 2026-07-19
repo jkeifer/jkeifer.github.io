@@ -6,7 +6,7 @@
 
 <h2>recent posts</h2>
 <ul class="posts">
-    {{ range first 10 (where .Site.RegularPages "Type" "posts") }}
+    {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
     <li>
         <div class="post-entry">
             <span class="date">{{ .Date.Format "2006-01-02" }}</span>
@@ -26,24 +26,25 @@
 </p>
 
 {{ $pres := where .Site.RegularPages "Section" "presentations" }}
-{{ $upcoming := where $pres "Date" ">=" now }}
-{{ $recent := where (where $pres "Date" "<" now) "Date" ">=" (now.AddDate 0 0 -60) }}
-
-{{ with $upcoming }}
-<h2>upcoming presentations</h2>
-<ul class="posts">
-    {{ range first 5 (sort . "Date" "asc") }}{{ partial "presentation-entry.html" . }}{{ end }}
-</ul>
-{{ end }}
-
-{{ with $recent }}
-<h2>recent presentations</h2>
-<ul class="posts">
-    {{ range first 5 . }}{{ partial "presentation-entry.html" . }}{{ end }}
-</ul>
+{{ $upcoming := first 5 (sort (where $pres "Date" ">=" now) "Date" "asc") }}
+{{ $pad := sub 5 (len $upcoming) }}
+{{ $recent := slice }}
+{{ if gt $pad 0 }}
+{{ $recent = first $pad (where $pres "Date" "<" now) }}
 {{ end }}
 
 {{ if or $upcoming $recent }}
+{{ if and $upcoming $recent }}
+<h2>upcoming & recent presentations</h2>
+{{ else if $upcoming }}
+<h2>upcoming presentations</h2>
+{{ else }}
+<h2>recent presentations</h2>
+{{ end }}
+<ul class="posts">
+    {{ range $upcoming }}{{ partial "presentation-entry.html" . }}{{ end }}
+    {{ range $recent }}{{ partial "presentation-entry.html" . }}{{ end }}
+</ul>
 <p class="view-all">
     <a href="{{ "presentations/" | relURL }}">view all presentations →</a>
 </p>
