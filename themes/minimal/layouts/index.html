@@ -43,8 +43,8 @@
 <h2>recent presentations</h2>
 {{ end }}
 <ul class="posts">
+    {{ with $recent }}{{ range sort . "Date" "asc" }}{{ partial "presentation-entry.html" . }}{{ end }}{{ end }}
     {{ range $upcoming }}{{ partial "presentation-entry.html" . }}{{ end }}
-    {{ range $recent }}{{ partial "presentation-entry.html" . }}{{ end }}
 </ul>
 <p class="view-all">
     <a href="{{ "presentations/" | relURL }}">view all presentations →</a>
