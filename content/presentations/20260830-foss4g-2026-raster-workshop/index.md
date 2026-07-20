@@ -2,10 +2,10 @@
 title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Raster Data"
 slug: "foss4g-2026-raster-formats-workshop"
 date: 2026-08-30
-# TODO: add eventUrl/pretalx page once the FOSS4G 2026 workshop schedule publishes
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2026"
+eventUrl: "https://talks.osgeo.org/foss4g-2026-workshop/talk/MPR9BD/"
 location: "Hiroshima, Japan"
 start: "2026-08-30T10:00:00+09:00"
 end: "2026-08-30T13:00:00+09:00"

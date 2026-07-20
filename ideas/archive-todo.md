@@ -73,7 +73,7 @@ original external link alongside the archive.
 
 - [ ] snapshot the talks.osgeo.org pretalx pages (PDF print or single-file
       HTML): KZGHTZ, MN7NCT, TNYSY9, MHHJE7, VFK79A, YTCPRS, ASNWTC, G3MHUZ,
-      GSAVCT, XHJYEA (2024/2025 events); CYWZVB, QEN3RF, A838QC (2026)
+      GSAVCT, XHJYEA (2024/2025 events); CYWZVB, QEN3RF, A838QC, MPR9BD, 8ZUPMV (2026)
 - [ ] snapshot the GIS in Action 2023 sched.com page:
       https://gisinaction2023.sched.com/event/1LSoB/planet-scale-raster-catalogs-with-stac-photogrammetry-and-imagery-advancements-room-206
 - [ ] snapshot the ESIP sched.com page:
@@ -95,8 +95,6 @@ vector workshop (2026-11-02, Tofanelli).
       date + agenda URL once published; then fill `start`/`end` (−06:00 MDT) +
       room in `address` for the add-to-calendar button
       → `20261007-cng-forum-2026-anatomy-of-a-file/`
-- [ ] FOSS4G 2026 workshops: calendar times/rooms now set (Room 601); still need
-      the eventUrl/pretalx pages once published → `20260830-…/`, `20260831-…/`
 - [ ] FOSS4G NA 2026 "Do formats exist?" talk: exact date + pretalx page once
       the schedule publishes (week of Aug 1, 2026); then fill `start`/`end`
       (−08:00 PST) + room in `address` for the add-to-calendar button (venue

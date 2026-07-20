@@ -2,10 +2,10 @@
 title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Vector Data"
 slug: "foss4g-2026-vector-formats-workshop"
 date: 2026-08-31
-# TODO: add eventUrl/pretalx page once the FOSS4G 2026 workshop schedule publishes
 ptype: "workshop"
 talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G 2026"
+eventUrl: "https://talks.osgeo.org/foss4g-2026-workshop/talk/8ZUPMV/"
 location: "Hiroshima, Japan"
 start: "2026-08-31T14:00:00+09:00"
 end: "2026-08-31T17:00:00+09:00"
