@@ -2,16 +2,14 @@
 title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Vector Data"
 slug: "foss4g-2026-vector-formats-workshop"
 date: 2026-08-31
-# TODO: FOSS4G 2026 workshop days are 2026-08-30/31; set exact date and add
-# eventUrl once the workshop schedule is published
+# TODO: add eventUrl/pretalx page once the FOSS4G 2026 workshop schedule publishes
 ptype: "workshop"
 talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G 2026"
 location: "Hiroshima, Japan"
-# TODO: fill start/end once the FOSS4G 2026 schedule is published
-start: ""
-end: ""
-address: "RCC Bunka Center, 5-11 Hashimoto-cho, Naka Ward, Hiroshima 730-0015, Japan"
+start: "2026-08-31T14:00:00+09:00"
+end: "2026-08-31T17:00:00+09:00"
+address: "RCC Bunka Center, Room 601, 5-11 Hashimoto-cho, Naka Ward, Hiroshima 730-0015, Japan"
 affiliation: "Element 84"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:

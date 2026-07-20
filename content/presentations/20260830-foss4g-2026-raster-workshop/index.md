@@ -2,16 +2,14 @@
 title: "Exploring Cloud Native Geospatial Data Formats: Hands-on with Raster Data"
 slug: "foss4g-2026-raster-formats-workshop"
 date: 2026-08-30
-# TODO: FOSS4G 2026 workshop days are 2026-08-30/31; set exact date and add
-# eventUrl once the workshop schedule is published
+# TODO: add eventUrl/pretalx page once the FOSS4G 2026 workshop schedule publishes
 ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2026"
 location: "Hiroshima, Japan"
-# TODO: fill start/end once the FOSS4G 2026 schedule is published
-start: ""
-end: ""
-address: "RCC Bunka Center, 5-11 Hashimoto-cho, Naka Ward, Hiroshima 730-0015, Japan"
+start: "2026-08-30T10:00:00+09:00"
+end: "2026-08-30T13:00:00+09:00"
+address: "RCC Bunka Center, Room 601, 5-11 Hashimoto-cho, Naka Ward, Hiroshima 730-0015, Japan"
 affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
