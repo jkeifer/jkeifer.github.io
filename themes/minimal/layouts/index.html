@@ -1,9 +1,4 @@
 {{ define "main" }}
-<h1>{{ .Site.Title | lower }}</h1>
-{{ with .Site.Params.description }}
-<p>{{ . }}</p>
-{{ end }}
-
 <h2>recent posts</h2>
 <ul class="posts">
     {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
@@ -36,7 +31,7 @@
 
 {{ if or $upcoming $recent }}
 {{ if and $upcoming $recent }}
-<h2>upcoming & recent presentations</h2>
+<h2>recent & upcoming presentations</h2>
 {{ else if $upcoming }}
 <h2>upcoming presentations</h2>
 {{ else }}
