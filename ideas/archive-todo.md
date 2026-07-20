@@ -83,10 +83,23 @@ original external link alongside the archive.
 
 ## Open metadata gaps
 
+The add-to-calendar button needs `start`/`end` (offset-aware) + a room-level
+`address`. The talks below have `address` set but empty `start`/`end` (so the
+button stays hidden) pending their published schedules; fill the times to
+enable it. Already complete: FOSS4G 2026 anatomy-of-a-file & do-formats-exist
+(2026-09-03, Room 4) and FOSS4G NA 2026 vector workshop (2026-11-02, Tofanelli).
+
 - [ ] CNG Forum 2026 (Oct 6–9, Snowbird): exact "Anatomy of a file" session
-      date + agenda URL once published → `20261007-cng-forum-2026-anatomy-of-a-file/`
+      date + agenda URL once published; then fill `start`/`end` (−06:00 MDT) +
+      room in `address` for the add-to-calendar button
+      → `20261007-cng-forum-2026-anatomy-of-a-file/`
 - [ ] FOSS4G 2026 workshop schedule (Aug 30–31): exact dates + pretalx pages for
-      the raster and vector workshops → `20260830-…/`, `20260831-…/`
+      the raster and vector workshops; then fill `start`/`end` (+09:00 JST) +
+      room in `address` for the add-to-calendar button (venue RCC Bunka Center
+      already set) → `20260830-…/`, `20260831-…/`
 - [ ] FOSS4G NA 2026 "Do formats exist?" talk: exact date + pretalx page once
-      the schedule publishes (week of Aug 1, 2026) → `20261103-foss4g-na-2026-do-formats-exist/`
+      the schedule publishes (week of Aug 1, 2026); then fill `start`/`end`
+      (−08:00 PST) + room in `address` for the add-to-calendar button (venue
+      Sheraton Grand Sacramento already set)
+      → `20261103-foss4g-na-2026-do-formats-exist/`
 - [ ] GIS in Action 2014 poster session date (conference ran Apr 16–17)

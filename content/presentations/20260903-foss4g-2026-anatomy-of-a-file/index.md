@@ -7,6 +7,9 @@ talks: ["anatomy of a file"]
 event: "FOSS4G 2026"
 eventUrl: "https://talks.osgeo.org/foss4g-2026/talk/CYWZVB/"
 location: "Hiroshima, Japan"
+start: "2026-09-03T13:00:00+09:00"
+end: "2026-09-03T13:30:00+09:00"
+address: "International Conference Center Hiroshima, Room 4, 1-5 Nakajimacho, Naka Ward, Hiroshima 730-0811, Japan"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector"]
 summary: |

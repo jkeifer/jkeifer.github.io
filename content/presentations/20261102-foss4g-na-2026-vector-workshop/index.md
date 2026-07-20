@@ -7,6 +7,9 @@ talks: ["cloud-native vector formats workshop"]
 event: "FOSS4G NA 2026"
 eventUrl: "https://talks.osgeo.org/foss4g-na-2026/talk/A838QC/"
 location: "Sacramento, CA, USA"
+start: "2026-11-02T09:00:00-08:00"
+end: "2026-11-02T12:00:00-08:00"
+address: "Sheraton Grand Sacramento, Tofanelli, 1230 J St, Sacramento, CA 95814"
 affiliation: "Element 84"
 tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:

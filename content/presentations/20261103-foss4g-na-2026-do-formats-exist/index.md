@@ -8,6 +8,10 @@ ptype: "talk"
 talks: ["do formats exist"]
 event: "FOSS4G NA 2026"
 location: "Sacramento, CA, USA"
+# TODO: fill start/end once the FOSS4G NA 2026 schedule is published
+start: ""
+end: ""
+address: "Sheraton Grand Sacramento, 1230 J St, Sacramento, CA 95814"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "open-source", "wasm"]
 summary: |

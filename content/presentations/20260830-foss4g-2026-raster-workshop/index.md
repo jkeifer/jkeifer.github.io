@@ -8,6 +8,10 @@ ptype: "workshop"
 talks: ["cloud-native raster formats workshop"]
 event: "FOSS4G 2026"
 location: "Hiroshima, Japan"
+# TODO: fill start/end once the FOSS4G 2026 schedule is published
+start: ""
+end: ""
+address: "RCC Bunka Center, 5-11 Hashimoto-cho, Naka Ward, Hiroshima 730-0015, Japan"
 affiliation: "Element 84"
 tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:

@@ -9,6 +9,10 @@ talks: ["anatomy of a file"]
 event: "CNG Forum 2026"
 eventUrl: "https://2026.cloudnativegeo.org/"
 location: "Snowbird, UT, USA"
+# TODO: fill start/end once the CNG Forum 2026 schedule is published
+start: ""
+end: ""
+address: "Snowbird Ski and Summer Resort, 9385 S Snowbird Center Dr, Snowbird, UT 84092, USA"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector", "cng"]
 summary: |
