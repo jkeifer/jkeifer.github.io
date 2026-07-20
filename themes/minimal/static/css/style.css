@@ -512,6 +512,25 @@ article header .draft-badge {
     margin-top: 0.5rem;
 }
 
+.post-meta-box .cal-add {
+    margin-top: 0.75rem;
+}
+
+.cal-button {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--footer-text);
+    border-radius: 4px;
+    color: var(--text-color);
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.cal-button:hover {
+    background-color: var(--code-bg);
+}
+
 /* Table of contents */
 .toc {
     margin-bottom: 2rem;

@@ -73,6 +73,32 @@
         {{- end }}
         </div>
         {{ end }}
+        {{ $canCal := and $isUpcoming .Params.start .Params.end .Params.address }}
+        {{ if $canCal }}
+        {{ $stamp := now.UTC.Format "20060102T150405Z" }}
+        {{ $dtstart := (time.AsTime .Params.start).UTC.Format "20060102T150405Z" }}
+        {{ $dtend := (time.AsTime .Params.end).UTC.Format "20060102T150405Z" }}
+        {{ $desc := .Permalink }}
+        {{ with .Params.summary }}{{ $desc = printf "%s\\n\\n%s" (partial "ical-escape" .) $.Permalink }}{{ end }}
+        {{ $lines := slice
+            "BEGIN:VCALENDAR"
+            "VERSION:2.0"
+            "PRODID:-//teotl.dev//presentations//EN"
+            "BEGIN:VEVENT"
+            (printf "UID:%s" .Permalink)
+            (printf "DTSTAMP:%s" $stamp)
+            (printf "DTSTART:%s" $dtstart)
+            (printf "DTEND:%s" $dtend)
+            (printf "SUMMARY:%s" (partial "ical-escape" .Title))
+            (printf "LOCATION:%s" (partial "ical-escape" .Params.address))
+            (printf "DESCRIPTION:%s" $desc)
+            "END:VEVENT"
+            "END:VCALENDAR" }}
+        {{ $ics := delimit $lines "\r\n" }}
+        <div class="cal-add">
+            <a class="cal-button" download="{{ .Params.slug | default "event" }}.ics" href="data:text/calendar;charset=utf-8;base64,{{ $ics | base64Encode }}">+ add to calendar</a>
+        </div>
+        {{ end }}
     </div>
     {{ end }}
 
