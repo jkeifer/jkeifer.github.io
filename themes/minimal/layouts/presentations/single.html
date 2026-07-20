@@ -2,6 +2,33 @@
 
 {{ define "main" }}
 <article>
+    {{ $today := time.AsTime (now.Format "2006-01-02") }}
+    {{ $isUpcoming := ge .Date $today }}
+    {{/* Build an add-to-calendar .ics data URI for upcoming, fully-scheduled talks. */}}
+    {{ $calHref := "" }}
+    {{ if and $isUpcoming .Params.start .Params.end .Params.address }}
+    {{ $stamp := now.UTC.Format "20060102T150405Z" }}
+    {{ $dtstart := (time.AsTime .Params.start).UTC.Format "20060102T150405Z" }}
+    {{ $dtend := (time.AsTime .Params.end).UTC.Format "20060102T150405Z" }}
+    {{ $desc := .Permalink }}
+    {{ with .Params.summary }}{{ $desc = printf "%s\\n\\n%s" (partial "ical-escape" .) $.Permalink }}{{ end }}
+    {{ $lines := slice
+        "BEGIN:VCALENDAR"
+        "VERSION:2.0"
+        "PRODID:-//teotl.dev//presentations//EN"
+        "BEGIN:VEVENT"
+        (printf "UID:%s" .Permalink)
+        (printf "DTSTAMP:%s" $stamp)
+        (printf "DTSTART:%s" $dtstart)
+        (printf "DTEND:%s" $dtend)
+        (printf "SUMMARY:%s" (partial "ical-escape" .Title))
+        (printf "LOCATION:%s" (partial "ical-escape" .Params.address))
+        (printf "DESCRIPTION:%s" $desc)
+        "END:VEVENT"
+        "END:VCALENDAR" }}
+    {{ $ics := delimit $lines "\r\n" }}
+    {{ $calHref = printf "data:text/calendar;charset=utf-8;base64,%s" ($ics | base64Encode) }}
+    {{ end }}
     <header>
         <h1 data-url="{{ .Permalink }}">{{ .Title }}</h1>
         <div class="post-meta">
@@ -15,6 +42,7 @@
             {{- else }}{{ with .Params.event }}<strong>{{ . | markdownify }}</strong>{{ end }}{{ end -}}
             {{ if and .Params.event .Params.location }} | {{ end -}}
             {{ with .Params.location }}{{ . | markdownify }}{{ end }}
+            {{- with $calHref }} <a class="cal-link" download="{{ $.Params.slug | default "event" }}.ics" href="{{ . | safeURL }}">+ calendar</a>{{ end }}
         </div>
         {{ end }}
         {{ with .Params.coauthors }}
@@ -37,8 +65,6 @@
         </div>
     </header>
 
-    {{ $today := time.AsTime (now.Format "2006-01-02") }}
-    {{ $isUpcoming := ge .Date $today }}
     {{ $ptype := .Params.ptype | default "talk" }}
     {{ $page := . }}
     {{ $upcomingSibs := slice }}
@@ -71,32 +97,6 @@
             {{- range $i, $p := $upcomingSibs }}{{ if $i }},{{ end }} <a href="{{ $p.Permalink }}">{{ $p.Params.event | default $p.Title | markdownify }}</a> ({{ $p.Date.Format "2006-01-02" }}){{ end }}
         {{- else }}{{ range $newer }}a newer version of this {{ $ptype }} was presented at <a href="{{ .Permalink }}">{{ .Params.event | default .Title | markdownify }}</a> ({{ .Date.Format "2006-01-02" }}){{ end }}
         {{- end }}
-        </div>
-        {{ end }}
-        {{ $canCal := and $isUpcoming .Params.start .Params.end .Params.address }}
-        {{ if $canCal }}
-        {{ $stamp := now.UTC.Format "20060102T150405Z" }}
-        {{ $dtstart := (time.AsTime .Params.start).UTC.Format "20060102T150405Z" }}
-        {{ $dtend := (time.AsTime .Params.end).UTC.Format "20060102T150405Z" }}
-        {{ $desc := .Permalink }}
-        {{ with .Params.summary }}{{ $desc = printf "%s\\n\\n%s" (partial "ical-escape" .) $.Permalink }}{{ end }}
-        {{ $lines := slice
-            "BEGIN:VCALENDAR"
-            "VERSION:2.0"
-            "PRODID:-//teotl.dev//presentations//EN"
-            "BEGIN:VEVENT"
-            (printf "UID:%s" .Permalink)
-            (printf "DTSTAMP:%s" $stamp)
-            (printf "DTSTART:%s" $dtstart)
-            (printf "DTEND:%s" $dtend)
-            (printf "SUMMARY:%s" (partial "ical-escape" .Title))
-            (printf "LOCATION:%s" (partial "ical-escape" .Params.address))
-            (printf "DESCRIPTION:%s" $desc)
-            "END:VEVENT"
-            "END:VCALENDAR" }}
-        {{ $ics := delimit $lines "\r\n" }}
-        <div class="cal-add">
-            <a class="cal-button" download="{{ .Params.slug | default "event" }}.ics" href="data:text/calendar;charset=utf-8;base64,{{ $ics | base64Encode }}">+ add to calendar</a>
         </div>
         {{ end }}
     </div>

@@ -512,23 +512,24 @@ article header .draft-badge {
     margin-top: 0.5rem;
 }
 
-.post-meta-box .cal-add {
-    margin-top: 0.75rem;
-}
-
-.cal-button {
+.venue .cal-link {
     display: inline-block;
-    padding: 0.3rem 0.75rem;
-    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
     border: 1px solid var(--footer-text);
     border-radius: 4px;
-    color: var(--text-color);
+    color: var(--footer-text);
     text-decoration: none;
-    line-height: 1.2;
+    line-height: 1.4;
 }
 
-.cal-button:hover {
+.venue .cal-link:hover {
     background-color: var(--code-bg);
+    color: var(--text-color);
 }
 
 /* Table of contents */
