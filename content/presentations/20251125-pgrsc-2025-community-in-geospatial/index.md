@@ -9,9 +9,6 @@ location: "Suva, Fiji"
 affiliation: "Element 84"
 note: "an impromptu talk, presented without slides"
 tags: ["community", "open-source", "osgeo", "cloud-native", "open-data"]
-links:
-  - name: "conference resources page"
-    href: "https://pgrsc.org/2025-conference-resources/"
 ---
 
 Transcript of the talk as delivered:
