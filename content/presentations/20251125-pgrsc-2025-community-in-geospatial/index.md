@@ -10,8 +10,8 @@ affiliation: "Element 84"
 note: "an impromptu talk, presented without slides"
 tags: ["community", "open-source", "osgeo", "cloud-native", "open-data"]
 links:
-  - name: "conference proceedings (pdf)"
-    href: "https://pgrsc.org/wp-content/uploads/2025/11/2025_Pacific_Islands_GIS_RS_User_Conference_proceedings_v4.pdf"
+  - name: "conference resources page"
+    href: "https://pgrsc.org/2025-conference-resources/"
 ---
 
 Transcript of the talk as delivered:

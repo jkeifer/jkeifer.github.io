@@ -47,9 +47,10 @@ original external link alongside the archive.
 - [ ] Earth-Search STAC API talk slides (no gdoc link on file; the FOSS4G 2024
       pretalx page XHJYEA has a "Slides (8.7 MB)" attachment — grab that):
       → `20241205-foss4g-2024-earthsearch/`
-- [ ] PGRSC 2025 "importance of community" — no deck (impromptu, slideless talk);
-      only the conference-wide proceedings PDF exists (linked). Archive that PDF
-      into the bundle → `20251125-pgrsc-2025-community-in-geospatial/`
+- [x] PGRSC 2025 "importance of community" — impromptu, slideless talk, not
+      included in the conference proceedings, so no external asset to archive;
+      the verbatim transcript on the page is the record
+      → `20251125-pgrsc-2025-community-in-geospatial/`
 
 ## Recordings (links added to pages; archive local copies)
 
@@ -83,7 +84,7 @@ original external link alongside the archive.
       https://2026januaryesipmeeting.sched.com/event/2CXOq/bridging-the-cloud-divide-part-1
 - [ ] snapshot the GIS in Action 2019 sched.com page:
       https://gisinaction2019.sched.com/event/KTIH/deployment
-- [ ] snapshot the PGRSC 2025 conference resources page + proceedings PDF:
+- [ ] snapshot the PGRSC 2025 conference resources page (lists the talk):
       https://pgrsc.org/2025-conference-resources/
       → `20251125-pgrsc-2025-community-in-geospatial/`
 
