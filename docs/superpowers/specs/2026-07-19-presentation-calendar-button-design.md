@@ -166,6 +166,9 @@ readable in both themes via existing CSS variables. No new colors introduced.
 - `themes/minimal/static/css/style.css` — `.cal-button` styling.
 - One or more upcoming presentation `index.md` files — add `start`, `end`,
   `address` to demonstrate/enable the feature (e.g. the ESIP 2026 talk).
+- `themes/minimal/archetypes/presentations.md` — add the three new optional
+  fields (`start`, `end`, `address`) with commented guidance so new talks are
+  authored with them in mind.
 
 ## Testing / verification
 
