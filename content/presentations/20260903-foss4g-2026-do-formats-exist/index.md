@@ -12,6 +12,9 @@ end: "2026-09-03T14:00:00+09:00"
 address: "International Conference Center Hiroshima, Room 4, 1-5 Nakajimacho, Naka Ward, Hiroshima 730-0811, Japan"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "open-source", "wasm"]
+links:
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1h2rURRCmRC90JEH8kKoGEoxYZD24AmwBviKnnSJdo8c"
 summary: |
   What if data formats didn't need their own libraries? The cylf ecosystem
   leverages WebAssembly to make codecs, format drivers, and storage drivers
@@ -28,26 +31,31 @@ are surface-level. The underlying structure is shared. If that's true, why do
 we build tooling as if these formats are fundamentally different things?
 
 The cylf ecosystem takes this question seriously. It is a new open-source
-effort to build format-agnostic data tooling on a shared foundation. In cylf,
-codecs can be sandboxed WASM modules that can be specified declaratively and
-resolved on demand, whether by registry identifier or by URI, fetched and
-executed the same way a browser fetches and runs code from the web. Data
-producers declare which codecs their data requires; data consumers resolve and
-run them automatically, with no environment setup required and no out-of-band
-coordination.
+effort to build a shared, format-agnostic codec layer. Codecs are specified
+declaratively and resolved on demand from a bundled native standard library, or
+as sandboxed WASM modules fetched by registry identifier or by URI, the same
+way a browser fetches and runs code from the web. Data producers declare which
+codecs their data requires; consumers resolve and run them automatically, with
+no environment setup, no out-of-band coordination, and no need to trust the
+codec author.
 
-This is more than packaging convenience. Codecs can be registered with metadata
-describing their capabilities and target architectures. Clients run them
-chained together into pipelines with zero-copy memory sharing. The same model
-can extend upward to format drivers and storage drivers, enabling a modular and
-decoupled architecture where support for formats, access protocols, and codecs
-can be developed independently, each with its own lifecycle. The runtime
-handles orchestration, memory, and multithreaded execution, so format drivers
-don't have to.
+Codecs compose into pipelines defined as JSON DAGs, with typed ports and
+explicitly declared encode and decode directions. Asymmetric codecs, where the
+two directions have genuinely different shapes, are wired naturally rather than
+inverted by the runtime. Data copies are accounted for at every step boundary,
+down to zero where adjacent steps use native implementations. Looking further
+out, the same model could extend upward to format and storage drivers, letting
+formats, access protocols, and codecs each evolve on their own lifecycle.
 
-We demonstrate this architecture with COG support and a growing set of WASM
-codec implementations, with Parquet support in progress. The project includes a
-Python library as a proof of concept. We are seeking collaborators, feedback,
-and engagement from the standards and data formats communities to help shape
-what we believe could be a unified foundation for the next generation of data
-tooling.
+The project includes a spec and a Python proof-of-concept library, both
+developed with partial support from the NASA-IMPACT VEDA project. We demo the
+library with COG encode and decode, with Parquet as the next target. Along the
+way we present a survey of 60+ codecs across Zarr, TIFF, Parquet, ORC, HDF5 and
+others with their signatures and composition properties, and a taxonomy of what
+those codecs must know about the data—bytes only, stride, dtype, or full
+dimensional structure—which is where our answer to the opening question comes
+from. We also present preliminary benchmarks, including one result that turned
+out to measure something quite different from what we set out to measure. We
+are seeking collaborators, critical feedback from the standards and data
+formats communities, and institutional support to build a native reference
+runtime.

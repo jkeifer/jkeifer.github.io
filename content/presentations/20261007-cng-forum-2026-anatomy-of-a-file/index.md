@@ -2,19 +2,19 @@
 title: "Anatomy of a file"
 slug: "cng-forum-2026-anatomy-of-a-file"
 date: 2026-10-07
-# TODO: conference runs 2026-10-06/09; set exact session date once the CNG
-# Forum 2026 agenda is published
 ptype: "talk"
 talks: ["anatomy of a file"]
 event: "CNG Forum 2026"
 eventUrl: "https://2026.cloudnativegeo.org/"
 location: "Snowbird, UT, USA"
-# TODO: fill start/end once the CNG Forum 2026 schedule is published
-start: ""
-end: ""
-address: "Snowbird Ski and Summer Resort, 9385 S Snowbird Center Dr, Snowbird, UT 84092, USA"
+start: "2026-10-07T11:25:00-06:00"
+end: "2026-10-07T11:45:00-06:00"
+address: "Primrose B, Snowbird Ski and Summer Resort, 9385 S Snowbird Center Dr, Snowbird, UT 84092, USA"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector", "cng"]
+links:
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1PlBy69ZF_hhcyD6_US14hDdxvM9ZctGA85NquIlflRQ/"
 summary: |
   Raster, vector, point cloud: every geospatial format solves the same core
   problems, including linearization, chunking, compression, and metadata. Let's

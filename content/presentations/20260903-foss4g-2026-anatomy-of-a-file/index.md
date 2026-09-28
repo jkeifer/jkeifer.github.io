@@ -12,6 +12,9 @@ end: "2026-09-03T13:30:00+09:00"
 address: "International Conference Center Hiroshima, Room 4, 1-5 Nakajimacho, Naka Ward, Hiroshima 730-0811, Japan"
 affiliation: "Element 84"
 tags: ["data-formats", "cloud-native", "raster", "vector"]
+links:
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1PlBy69ZF_hhcyD6_US14hDdxvM9ZctGA85NquIlflRQ/"
 summary: |
   Raster, vector, point cloud: every geospatial format solves the same core
   problems, including linearization, chunking, compression, and metadata. Let's

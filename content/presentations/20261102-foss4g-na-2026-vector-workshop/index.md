@@ -15,6 +15,8 @@ tags: ["cloud-native", "vector", "parquet", "tabular", "data-formats"]
 links:
   - name: "github repository"
     href: "https://github.com/cng-vector-formats"
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1e8uUF99BBLlzIPyIokFMPP1iZS0xQxBaQjuWTI11f7E/"
 summary: |
   Dig into geospatial vector formats—including GeoJSON, WKT/WKB, and
   cloud-native GeoParquet—using Python to see in detail how vector features are

@@ -15,6 +15,12 @@ tags: ["cloud-native", "raster", "cog", "zarr", "data-formats"]
 links:
   - name: "github repository"
     href: "https://github.com/cng-raster-formats"
+  - name: "slides (gdoc)"
+    href: "https://docs.google.com/presentation/d/1qiGfzzhOrWNkxmfskMmoIji-JGGjj2s-8KcUhnBPzUM/"
+summary: |
+  Dig into three cloud-native raster formats—COGs, Zarr, and Kerchunk—and learn
+  how data access works under the hood with hands-on Python exercises, no image
+  libraries required!
 ---
 
 Ever wonder what GDAL is doing under the hood when you read a GeoTIFF file?
