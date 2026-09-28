@@ -75,10 +75,10 @@ speaks for itself I think.
 | N-dimensional arrays | ⚠️ 3D, but 2D in practice | ✅ native |
 | Datacube assembly | ⛔️ outside the format | ✅ native |
 | Declarative, self-describing description | ⛔️ opaque, externally-defined tags | ✅ it's JSON |
-| Extensibility | ⛔️ TIFF is effectively frozen, COG adds even more structure on top | ⚠️it's JSON |
+| Extensibility | ⛔️ TIFF is effectively frozen, COG adds even more structure on top | ⚠️ it's JSON |
 | Codified geospatial metadata | ✅ GeoTIFF, standardized since 1994 | ⛔️ none standard; informal only |
 | Visualization | ✅ the IFD-chain convention for overviews | ⛔️ none standard |
-| Single-file portability | ✅ yes, it's a file | 🤷♀️it's a filesystem tree, but maybe? |
+| Single-file portability | ✅ yes, it's a file | 🤷 it's a filesystem tree, but maybe? |
 | Compatibility / interoperability | ✅ everywhere | ⛔️ varying degrees of nascent |
 
 Notably, this matrix highlights what is dissimilar, leaving out where they are
@@ -683,7 +683,7 @@ Let's update the table to see how things land now.
 
 | Feature | COG, unchanged | Zarr, now |
 | :---- | :---- | :---- |
-| N-dimensional arrays | ⚠️3D, but 2D in practice, though tile interleaving is interesting | ✅ native |
+| N-dimensional arrays | ⚠️ 3D, but 2D in practice, though tile interleaving is interesting | ✅ native |
 | Datacube assembly | ⛔️ outside the format | ✅ native |
 | Declarative, self-describing description | ⛔️ opaque, externally-defined tags | ✅ still JSON, now with Conventions! |
 | Extensibility | ⛔️ TIFF is effectively frozen, COG adds even more structure on top | ✅ clear Convention framework, young but proven |
@@ -695,7 +695,7 @@ Let's update the table to see how things land now.
 Zarr has a lot more green. The one thing in the table that slipped was Zarr's
 single-file portability story, but that's not because anything regressed there.
 Rather, I went and checked the spec, and found this was always a ⛔️; the year
-ago 🤷♀️was me not knowing any better.
+ago 🤷 was me not knowing any better.
 
 COG didn't really move. But here's the thing: stillness is a feature, and the
 ⛔️ for extensibility is how COG earns its ✅ for compatibility. A format that
