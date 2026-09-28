@@ -3,8 +3,9 @@
 {{ define "main" }}
 <article>
     {{ with .Params.image }}
+    {{ $img := partial "image-options.html" . }}
     <figure class="title-image" aria-label="Article hero image">
-        <img src="{{ . }}" alt="{{ with $.Params.imageAlt }}{{ . }}{{ else }}{{ $.Title }}{{ end }}">
+        <img src="{{ $img.src }}" alt="{{ with $.Params.imageAlt }}{{ . }}{{ else }}{{ $.Title }}{{ end }}"{{ with $img.class }} class="{{ . }}"{{ end }}{{ with $img.style }} style="{{ . | safeCSS }}"{{ end }}>
         {{ with $.Params.imageCaption }}
         <figcaption>{{ . | markdownify }}</figcaption>
         {{ end }}

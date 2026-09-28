@@ -21,7 +21,7 @@ math: false
 As of late I've been on a bit of a writing streak. My coworker [Julia
 Signell](https://github.com/jsignell) and I have written four posts for [our
 company's blog](https://element84.com/blog) (which I have mirrored on this site
-[here](zarr-cog), [here](chunking-part-1), [here](chunking-part-2), and
+[here](zarr-cog-round-1), [here](chunking-part-1), [here](chunking-part-2), and
 [here](raster-compression)), and I have another post awaiting imminent
 publishing on [the Cloud Native Geospatial Forum's
 blog](https://cloudnativegeo.org/blog). I also have a number of other ideas

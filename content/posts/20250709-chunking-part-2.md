@@ -372,7 +372,7 @@ file. Sharded Zarr is also chunked, but the chunks are consolidated into larger
 blocks–essentially we get chunks of chunks. Each of these "chunks of chunks"
 are then written as files, with an additional index to allow looking up where
 in the file a given chunk resides. [Shards are a lot like a TIFF
-file](zarr-cog#cog-and-zarr)
+file](zarr-cog-round-1#cog-and-zarr)
 without additional metadata and with a different index format.
 
 Because of the n-dimensional nature of Zarr data, chunking can be a much more

@@ -1,0 +1,49 @@
+{{- /* Parse display options from a query string on an image path, returning a
+       dict of the bare src plus the class/style to render with.
+
+         image.png              -> no options
+         image.png?bg           -> light gray "card": #f4f4f4 background, padding
+         image.png?bg=ffffff    -> custom background color (hex without the #, or a CSS color name)
+         image.png?bg&radius=0  -> square corners (opt out of the default rounding)
+         image.png?bg&radius=24 -> custom corner radius in px
+
+       Options combine with "&". Useful for line-art diagrams and SVGs with
+       transparent backgrounds so they stay legible in dark mode.
+
+       Used by the image render hook (body images) and by single.html /
+       head.html (the `image` front matter title image). */ -}}
+
+{{- $dest := . -}}
+{{- $src := $dest -}}
+{{- $query := "" -}}
+{{- $parts := split $dest "?" -}}
+{{- if gt (len $parts) 1 -}}
+  {{- $src = index $parts 0 -}}
+  {{- $query = index $parts 1 -}}
+{{- end -}}
+
+{{- $class := "" -}}
+{{- $decls := slice -}}
+{{- range (split $query "&") -}}
+  {{- $kv := split . "=" -}}
+  {{- $k := index $kv 0 -}}
+  {{- $v := "" -}}
+  {{- if gt (len $kv) 1 -}}{{- $v = index $kv 1 -}}{{- end -}}
+  {{- if eq $k "bg" -}}
+    {{- $class = "img-card" -}}
+    {{- with $v -}}
+      {{- $color := . -}}
+      {{- if findRE "^[0-9a-fA-F]{3,8}$" $color -}}{{- $color = printf "#%s" $color -}}{{- end -}}
+      {{- $decls = $decls | append (printf "background-color: %s" $color) -}}
+    {{- end -}}
+  {{- else if eq $k "radius" -}}
+    {{- if findRE "^[0-9]+$" $v -}}
+      {{- $decls = $decls | append (printf "border-radius: %spx" $v) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $style := "" -}}
+{{- if $decls -}}{{- $style = printf "%s;" (delimit $decls "; ") -}}{{- end -}}
+
+{{- return (dict "src" $src "class" $class "style" $style) -}}

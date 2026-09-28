@@ -598,11 +598,13 @@ article header .draft-badge {
     border-radius: 12px;
 }
 
-/* Opt-in image "card" via the ?bg[=color] option in image markup (see render-image.html).
-   Adds a light background (and padding) so transparent line-art diagrams stay legible
-   in dark mode. Corner rounding is a global default on .content img; use the ?radius=<px>
-   option (e.g. ?radius=0) to override it per image. */
-.content img.img-card {
+/* Opt-in image "card" via the ?bg[=color] option on body images and on the
+   `image` front matter title image (see partials/image-options.html). Adds a
+   light background (and padding) so transparent line-art diagrams and SVGs stay
+   legible in dark mode. Corner rounding is a per-context default (.content img,
+   .title-image img); use the ?radius=<px> option (e.g. ?radius=0) to override it
+   per image. */
+img.img-card {
     background-color: #f4f4f4;
     padding: 1rem;
     box-sizing: border-box;

@@ -41,7 +41,7 @@ and efficiency: wrong choices at this layer can have profound impacts on costs.
 
 Compression is also largely the only difference between various array storage
 formats when it comes to actual data bytes. For an example of this, take a look
-at our post [Is Zarr the new COG?](zarr-cog)
+at our post [Is Zarr the new COG?](zarr-cog-round-1)
 where we show that Zarr and COG both store array data identically given the
 same compression pipeline. While legitimate reasons exist to consider certain
 formats over others, many discussions of data formats erroneously conflate
@@ -763,7 +763,7 @@ function of two things:
 What compression operations can be performed on the data–what codecs are
 supported–is limited by the format, as is how the data can be chunked. As we
 showed in our previous post [Is Zarr the new
-COG?](zarr-cog), with
+COG?](zarr-cog-round-1), with
 equivalent chunking and compression the data bytes will be the same across
 formats. Thus, the major differences between array formats end up being:
 
